@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Group</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(204, 212, 228);
+        }
+        .form1{
+            background-color: white;
+            box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.662);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            width:30%;
+            position: absolute;
+        }
+        form{
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input,select{
+            margin: 10px;
+            padding: 5px;
+            width: 100%;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.04);
+            border: 2px solid rgb(0, 0, 0,0);
+        }
+        input:focus-within,select:focus{
+         border: 2px solid rgb(103, 175, 220,0.5);
+        }
+
+
+        form div{
+            width: 100%;
+        }
+        button{
+            padding: 6px 30px;
+            border-radius: 10px;
+            border: 4px solid rgb(0, 0, 0,0);
+            color: white;
+            background-color: rgb(103, 175, 220);
+        }
+        button:hover{
+            
+            border: 4px solid rgb(103, 175, 220);
+            color: rgb(103, 175, 220);
+            background-color: white;
+        }
+        .close {
+	position: absolute;
+	top: 0;
+	right: 8px;
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+	transform: rotate(45deg);
+	cursor: pointer;
+    text-decoration: none;
+	
+}
+.close:hover{
+    color: yellow;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="form1">
+        <a href="javascript:history.go(-1);" class="close">+</a>
+        <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Group creations</h5>
+        <form action="" method="post">
+        
+            
+            <div><p>Name</p></div>
+            <input type="text">
+            <div><p>(Alias)</p></div>
+            <input type="text">
+            <div><p>Under</p></div>
+            <select name="under" id="under">
+                <option value="Bank Account">Bank Accouts</option>
+                <option value="Bank OCC A/c">Bank OCC A/c</option>
+                <option value="Bank OD A/c">Bank OD A/c</option>
+                <option value="Bank_Account">Branch Divisions</option>
+                <option value="Bank_Account">Capital Amount</option>
+                <option value="Bank_Account">Cash in Hand</option>
+                <option value="Bank_Account">Current Assets</option>
+                <option value="Bank_Account">Current Liabilities</option>
+                <option value="Bank_Account">Deposits (Asset)</option>
+                <option value="Bank_Account">Direct Expenses</option>
+                <option value="Bank_Account">Direct Incomes</option>
+                <option value="Bank_Account">Duties and Taxes</option>
+                <option value="Bank_Account">Expenses(Direct)</option>
+                <option value="Bank_Account">Expenses(Indirect)</option>
+                <option value="Bank_Account">Fixed Assets</option>
+                <option value="Bank_Account">Income (Direct)</option>
+                <option value="Bank_Account">Income (Indirect)</option>
+                <option value="Bank_Account">Investments</option>
+                <option value="Bank_Account">Loans & Advances (Asset)</option>
+                <option value="Bank_Account">Loans (Liability)</option>
+                <option value="Bank_Account">Misc. Expenses (Asset)</option>
+                <option value="Bank_Account">provisions</option>
+                <option value="Bank_Account">Purchase Accounts</option>
+                <option value="Bank_Account">Reserves & Surplus</option>
+                <option value="Bank_Account">Retained Earnings</option>
+                <option value="Bank_Account">Sales Accounts</option>
+                <option value="Bank_Account">Secured Loans</option>
+                <option value="Bank_Account">Stock-in-Hand</option>
+                <option value="Bank_Account">Sundry Creditors</option>
+                <option value="Bank_Account">Sundry Debtors</option>
+                <option value="Bank_Account">Suspence A/c</option>
+                <option value="Bank_Account">Unsecured Loans</option>   
+            </select>
+            <hr>
+            <div><p>Group behaves like sub-ledger</p></div>
+            <select name="sub-ledger" id="sub-ledger">
+                <option value="No">No</option> 
+                <option value="Yes">Yes</option>
+                 
+            </select>
+            <div><p>Net Debit/Credit Balances for reporting</p></div>
+            <select name="sub-ledger" id="sub-ledger">
+                <option value="No">No</option> 
+                <option value="Yes">Yes</option>
+              
+            </select>
+            <div><p>Used for Calculations(for example :tax,discounts)</p></div>
+            <select name="sub-ledger" id="sub-ledger">
+                <option value="No">No</option> 
+                <option value="Yes">Yes</option>
+               
+            </select>
+            <p>(For sale invoice entries)</p>
+            <div><p>Method to Allocate when used in purchase invoice</p></div>
+            <select name="sub-ledger" id="sub-ledger">
+                <option value="Yes">Not Applicable</option>
+                <option value="No">Appropriate by Qty</option>
+                <option value="No">Appropriate by value</option>    
+            </select>
+            
+<button><h5>CREATE</h5></button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
