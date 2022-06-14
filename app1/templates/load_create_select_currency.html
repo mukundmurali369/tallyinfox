@@ -1,0 +1,63 @@
+
+
+    {% extends 'base.html' %}
+    {% block body %}
+        {% load static %}
+        <style>
+            .flexy{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        .form1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            
+        }
+        form{
+            padding:30px;
+        }
+        .close {
+            position: absolute;
+            top: 3px;
+            right: 8px;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            transform: rotate(45deg);
+            cursor: pointer;
+            text-decoration: none;
+            
+        }
+        button{
+            background-color:rgb(103, 175, 220) ;
+            color:white;
+            padding:10px 20px;
+        }
+    </style>
+
+       <div class="row container-fluid my-sm-5 p-0">
+        <div class="col-sm-3 m-0 p-0"></div>
+        <div class="col-sm-6 m-0 p-0" style=" background-color:rgba(0,0,0,0.2);">
+            <a href="javascript:history.go(-1);" class="close">+</a>
+        <h6 style="" class="bg-info text-light p-2">Currency creations</h6>
+        <div class="row container-fluid m-2 p-5">
+            <div class="col-6 flexy">
+                <a class="btn btn-info py-sm-3 px-sm-5" href="load_create_currency">Create New</a>
+
+            </div>
+            <div class="col-6 flexy">
+                <a class="btn  btn-info   py-sm-3 px-sm-5" href="load_alter_currency">Alter Existing</a>
+
+            </div>
+
+        </div>
+        </div>
+        <div class="col-sm-3  m-0 p-0"></div>
+
+       </div> 
+     
+    
+{% endblock %}
