@@ -9,4 +9,8 @@ urlpatterns = [
     path('load_create_select_currency',views.load_create_select_currency,name='load_create_select_currency'),
     path('load_create_currency',views.load_create_currency,name='load_create_currency'),
     path('load_alter_currency',views.load_alter_currency,name='load_alter_currency'),
+    path('load_create_vouchertyp',views.load_create_vouchertyp,name='load_create_vouchertyp'),
+    path('load_create_empcat',views.load_create_empcat,name='load_create_empcat'), 
+    path('load_create_empgrp',views.load_create_empgrp,name='load_create_empgrp'),
+    path('load_create_empatnd',views.load_create_empatnd,name='load_create_empatnd'),  
 ]
