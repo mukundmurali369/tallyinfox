@@ -1,0 +1,147 @@
+
+
+    {% extends 'base.html' %}
+    {% block body %}
+        {% load static %}
+        <style>
+            .flexy{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        .form1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            
+        }
+        form{
+            padding:30px;
+        }
+        .close {
+            position: absolute;
+            top: 3px;
+            right: 8px;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            transform: rotate(45deg);
+            cursor: pointer;
+            text-decoration: none;
+            
+        }
+        button{
+            background-color:rgb(103, 175, 220) ;
+            color:white;
+            padding:10px 20px;
+        }
+    </style>
+
+       <div class="row container-fluid  p-0 my-5">
+        <div class="col-sm-3 m-0 p-0"></div>
+        <div class="col-sm-6 m-0 p-0" style=" background-color:rgba(0,0,0,0.2);">
+            <a href="javascript:history.go(-1);" class="close">+</a>
+        <h6 style="" class="bg-info text-light p-2">Unit Creation</h6>
+        
+                <form action="" method="post">
+                  
+                <div class="">
+                    <div class="row container-fluid  p-2 m-0">
+                        <div class="col-sm-6 m-0 p-0"> <label for="a">Type</label></div>
+                        <div class="col-sm-6 m-0 p-0">
+                            <select name="usedate" id="a" class="form-control">
+                                <option value="primary">Primary</option> 
+                                <option value="secondry">Secondary</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="row container-fluid  p-2 m-0">
+                        <div class="col-sm-6 m-0 p-0"> <label for="b">Symbol</label></div>
+                        <div class="col-sm-6 m-0 p-0"> 
+                        <input type="text" class="form-control" id="b" placeholder=""></div>
+                        
+                    </div>
+
+                    <div class="row container-fluid  p-2 m-0">
+                        <div class="col-sm-6 m-0 p-0"> <label for="c">Formal Name</label></div>
+                        <div class="col-sm-6 m-0 p-0"> 
+                        <input type="text" class="form-control" id="c" placeholder=""></div>
+                        
+                    </div>
+
+                    <div class="row container-fluid  p-2 m-0">
+                        <div class="col-sm-6 m-0 p-0"> <label for="g">Unit Quantity Code(UQC)</label></div>
+                        <div class="col-sm-6 m-0 p-0"> 
+                            <select name="usedate" id="g" class="form-control">
+                                <option value="BAG-Bags">BAG-Bags</option> 
+                                <option value="BAL-Bale">BAL-Bale</option>
+                                <option value="">BDL-Bundles</option>
+                                <option value="">BKL-Buckles</option>
+                                <option value="">BOU-Billions Of Units</option>
+                                <option value="">BOX-Box</option>
+                                <option value="">BTL-Bottles</option>
+                                <option value="">BUN-Bunches</option>
+                                <option value="">CAN-Cans</option>
+                                <option value="">CTN-Cartons</option>
+                                <option value="">CCM-Cubic centimeters</option>
+                                <option value="">CBM-CBM</option>
+                                <option value="">CMS-Centimeters</option>
+                                <option value="">DRM-Drums</option>
+                                <option value="">DOZ-Dozens</option>
+                                <option value="">GGK-Great gross GYD</option>
+                                <option value="">GMS-Grams</option>
+                                <option value="">GRS-Gross GMS</option>
+                                <option value="">GYD-Gross Yards</option>
+                                <option value="">KME-Kilometer</option>
+                                <option value="">KGS-Kilograms</option>
+                                <option value="">KLR-Kiloliter</option>
+                                <option value="">MLT-Milliliter</option>
+                                <option value="">MTR-Meters</option>
+                                <option value="">NOS-Numbers</option>
+                                <option value="">PAC-Packs</option>
+                                <option value="">PCS-Pieces</option>
+                                <option value="">PRS-Pairs</option>
+                                <option value="">QTL-Quintal</option>
+                                <option value="">ROL-Rolls</option>
+                                <option value="">SQY-Square Yards</option>
+                                <option value="">SET-Sets</option>
+                                <option value="">SQF-Square feet</option>
+                                <option value="">SQM-Square meters</option>
+                                <option value="">TBS-Tablets</option>
+                                <option value="">TUB-Tubes</option>
+                                <option value="">TGM-Ten Gross</option>
+                                <option value="">THD-Thousands</option>
+                                <option value="">TON-Tons</option>
+                                <option value="">UNT-Units</option>
+                                <option value="">UGS-US Gallons</option>
+                                <option value="">YDS-Yards</option>
+                                <option value="">OTH-Others</option>
+
+                            </select>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row container-fluid  p-2 m-0">
+                        <div class="col-sm-6 m-0 p-0"> <label for="dcml">Number of decimal places</label></div>
+                        <div class="col-sm-6 m-0 p-0"> 
+                        <input type="text" class="form-control" id="dcml" placeholder="" value="0"></div>
+                        
+                    </div>
+                </div>
+                <div class="flexy w-100 py-4"><button class="btn btn-info w-25">Create</button></div> 
+
+                </form>
+              
+
+         
+        </div>
+        </div>
+        <div class="col-sm-3  m-0 p-0"></div>
+
+       </div> 
+     
+    
+{% endblock %}
