@@ -10,6 +10,9 @@ urlpatterns = [
     path('load_create_currency',views.load_create_currency,name='load_create_currency'),
     path('load_alter_currency',views.load_alter_currency,name='load_alter_currency'),
     path('load_create_vouchertyp',views.load_create_vouchertyp,name='load_create_vouchertyp'),
+    path('load_credit_list',views.load_credit_list,name='load_credit_list'),
+    path('create_group',views.create_group,name="create_group"),
+    path('load_multi_ledger_alter',views.load_multi_ledger_alter,name='load_multi_ledger_alter'),    
 
     
     path('load_create_employee',views.load_create_employee,name='load_create_employee'), 

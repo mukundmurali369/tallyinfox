@@ -1,12 +1,19 @@
+from multiprocessing import context
+from unicodedata import name
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
 
-from django.shortcuts import render,redirect
+from .models import *
+from datetime import datetime, date, timedelta
+from django.contrib.auth.models import User, auth
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
     return render(request, 'base.html')
 
 def load_create_groups(request):
-    return render(request,'load_create_groups.html')
+    return render(request,'groups.html')
     
 def load_create_ledger(request):
     return render(request,'load_create_ledger.html')
@@ -38,54 +45,47 @@ def load_create_empatnd(request):
 def load_create_unit(request):
     return render(request,'load_create_unit.html')
 
+def load_credit_list(request):
+    return render(request,'load_credit_list.html')
+
+def load_multi_ledger_alter(request):
+    return render(request,'load_multi_ledger_alter.html')
 
 
-def create_ledger(request):
+
+
+@csrf_exempt
+def create_group(request):
     if request.method == 'POST':
-        print('xxxxxxxxxxxxxxxxxxx')
-        # Ledger Basic
-        Lname = request.POST['Lname']
-        Lalias = request.POST['Lalias']
-        Lunder = request.POST['Lund']
-        Lopening_bal = request.POST['Lopening']
-        # Banking_details
-        B_od_limit = request.POST['B_od_limit']
-        B_ac_holder_name = request.POST['B_ac_name']
-        B_ac_no = request.POST['B_ac_no']
-        B_ifsc = request.POST['B_ac_ifsc']
-        B_swift_code = request.POST['B_ac_swift']
-        B_name = request.POST['B_name']
-        B_branch = request.POST['B_branch']
-        '''bank Configuration'''
-        B_alter_chq_bks = request.POST['B_alter_chq_bks']  # bool
-        B_name_enbl_chq_prtg = request.POST['B_name_enbl_chq_prtg']  # bool
+        gname = request.POST['gname']
+        alia = request.POST['alia']
+        if len(gname) <= 0:
+            return JsonResponse({
+                'status': 00
+            })
 
-        # Mailing_details
-        Mname = request.POST['Mname']
-        Maddress = request.POST['Maddress']
-        Mstate = request.POST['Mstate']
-        Mcountry = request.POST['Mcountry']
-        Mpincode = request.POST['Mpincode']
-        # Provide Banking Details
-        provide_banking = request.POST['provide_banking']  # bool
+        if len(alia) <= 0:
+            alia = None
+        else:
+            pass
 
-        # Tax_Registration_Details
-        Tgst_uin = request.POST['Tgst_uin']
-        Treg_typ = request.POST['Treg_typ']
-        Tpan_no = request.POST['Tpan_no']
-        T_alter_gst = request.POST['T_alter_gst']
+        under = request.POST['und']
+        gp = request.POST['subled']
+        nett = request.POST['nee']
+        calc = request.POST['cal']
+        meth = request.POST['meth']
 
-        print(
-            Lunder,
-            Mname,
-            Maddress,
-            provide_banking,
-            Tpan_no
-
+        mdl = GroupModel(
+            name=gname,
+            alias=alia,
+            under=under,
+            gp_behaves_like_sub_ledger=gp,
+            nett_debit_credit_bal_reporting=nett,
+            used_for_calculation=calc,
+            method_to_allocate_usd_purchase=meth,
         )
-
-    grp_under_lst = GroupModel.objects.all().order_by('name')
-    context = {
-        'grp': grp_under_lst,
-    }
-    return render(request, 'load_create_ledgers.html', context)
+        mdl.save()
+        # return redirect('index_view')
+        return JsonResponse({
+            'status': 1
+        })

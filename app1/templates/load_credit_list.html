@@ -8,6 +8,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
             }
         .form1{
             display: flex;
@@ -31,33 +32,38 @@
             text-decoration: none;
             
         }
+        .btns{
+            background-color:rgba(0,0,0,0.4);
+            color: white;
+
+        }
+        .btns:hover{
+            background-color:rgba(225,225,225,0.8);
+            color:black;
+        }
         button{
             background-color:rgb(103, 175, 220) ;
             color:white;
             padding:10px 20px;
         }
     </style>
-
-       <div class="row container-fluid my-sm-5 p-0">
+    <div class="row container-fluid my-sm-5 p-0 mx-0">
         <div class="col-sm-3 m-0 p-0"></div>
         <div class="col-sm-6 m-0 p-0" style=" background-color:rgba(0,0,0,0.2);">
             <a href="javascript:history.go(-1);" class="close">+</a>
-        <h6 style="" class="bg-info text-light p-2">Currency creations</h6>
-        <div class="row container-fluid m-2 p-5">
-            <div class="col-6 flexy">
-                <a class="btn btn-info py-sm-3 px-sm-5" href="load_create_currency">Create New</a>
-
-            </div>
-            <div class="col-6 flexy">
-                <a class="btn  py-sm-3 px-sm-5" href="load_alter_currency">Alter Existing</a>
-
-            </div>
+            <h6 style="" class="bg-info text-light p-2 m-0">List of Groups</h6>
+        <div class="flexy w-100">
+            <a class=" w-100" href="load_create_groups"><button  class="w-100 btns">Create</button></a>
+            <a class=" w-100" href="load_multi_ledger_alter"><button class="btns p-3 w-100">Branch/Divisions</button></a>
+            <a class=" w-100" href="load_multi_ledger_alter"><button class="btns p-3 w-100">Sundry Creditors</button></a> 
+            <a class=" w-100" href="load_multi_ledger_alter"><button class="btns p-3 w-100">Sundry Debtors</button></a>  
+        </div>
 
         </div>
-        </div>
+
         <div class="col-sm-3  m-0 p-0"></div>
 
-       </div> 
+    </div> 
      
     
 {% endblock %}
