@@ -46,39 +46,37 @@
         <div class="row container-fluid">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
-                <form action="" method="post">
+                <form action="create_currency" method="post">
+                    {% csrf_token %}
                     <label for="a">Symbol</label>
-                    <input type="text" class="form-control" id="a" placeholder="">
+                    <input type="text" class="form-control" id="a" placeholder="" name="symbol">
                     <label for="b">Formal Name</label>
-                    <input type="text" class="form-control" id="b" placeholder="">
+                    <input type="text" class="form-control" id="b" placeholder="" name="fname">
                     <label for="c">ISO Currency Code</label>
-                    <input type="text" class="form-control" id="c" placeholder="">
+                    <input type="text" class="form-control" id="c" placeholder="" name="iso_code">
                     <label for="d">Number of Decimal places</label>
-                    <input type="text" class="form-control" id="d" placeholder="">
+                    <input type="text" class="form-control" id="d" placeholder=""  name="n_deci_placs">
                     <label for="e">Show amount in millions</label>
-                    <select name="million" id="e" class="form-control">
+                    <select  id="e" class="form-control" name="smt_millon">
                         <option value="No">No</option> 
                         <option value="Yes">Yes</option>
                     </select>
                     <label for="f">Suffix symbol to amount</label>
-                    <select name="million" id="f" class="form-control">
+                    <select id="f" class="form-control" name="symbol_to_amount">
                         <option value="No">No</option> 
                         <option value="Yes">Yes</option>
                     </select>
 
                     <label for="g">Add space between symbol and amount</label>
-                    <select name="million" id="g" class="form-control">
+                    <select id="g" class="form-control" name="space_bt_sy">
                         <option value="No">No</option> 
                         <option value="Yes">Yes</option>
                     </select>
                     <label for="h">Word representing amount after decimal</label>
-                    <input type="text" class="form-control" id="h" placeholder="" >
+                    <input type="text" class="form-control" id="h" placeholder=""  name="amount_after_decimal">
 
                     <label for="i">No, of decimal places for amount in words</label>
-                    <select name="million" id="i" class="form-control">
-                        <option value="No">No</option> 
-                        <option value="Yes">Yes</option>
-                    </select>
+                    <input type="text" class="form-control" id="h" placeholder="" name="amount_in_words">
                     <div class="flexy">
                         <button type="submit" class="btn btn-info w-50 my-2" >Create</button>
                     </div>

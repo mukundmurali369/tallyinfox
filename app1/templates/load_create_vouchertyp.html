@@ -43,32 +43,35 @@
                         <div class="row container-fluid  p-2">
                             <div class="col-sm-6 m-0 p-0"> <label for="c">Select type of voucher</label></div>
                             <div class="col-sm-6 m-0 p-0">
-                                <select name="Activate" id="c" class="form-control">
-                                    <option value="">----------</option>
-                                    <option value="Attendance">Attendance</option>
-                                    <option value="Contra">Contra</option>
-                                    <option value="Credit Note">Credit Note</option>
-                                    <option value="Debit Note">Debit Note</option>
-                                    <option value="Delivery Note">Delivery Note</option>
-                                    <option value="jobinoder">Job Work In Order</option>
-                                    <option value="joboutoder">Job Work Out Order</option>
-                                    <option value="Journal">Journal</option>
-                                    <option value="Material In">Material In</option>
-                                    <option value="Material Out">Material Out</option>
-                                    <option value="Memorandum">Memorandum</option>
-                                    <option value="Payment">Payment</option>
-                                    <option value="Payroll">Payroll</option>
-                                    <option value="Physical Stock">Physical Stock</option>
-                                    <option value="Purchase">Purchase</option>
-                                    <option value="Purchase Order">Purchase Order</option>
-                                    <option value="Receipt">Receipt</option>
-                                    <option value="Receipt Note">Receipt Note</option>
-                                    <option value="Rejections In">Rejections In</option>
-                                    <option value="Rejections Out">Rejections Out</option>
-                                    <option value="Reversing Journal">Reversing Journal</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Sales Order">Sales Order</option>
-                                    <option value="Stock Journal">Stock Journal</option>
+                                <select required onchange="h()" name="vtype" id="" class="float-end me-1">
+                                    <option onclick="typ_of_voucher(this.value)" value="" selected disabled>select type</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Attendence">Attendence</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="contra">Contra</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Credit Note">Credit Note</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Debit Note">Debit Note</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Delivery Note">Delivery Note</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Job Work in Order">Job work in Order
+                                    </option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Job Work Out Order">Job Work Out Order
+                                    </option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Journal">Journal</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Material In">Material In</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Material Out">Material Out</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Memorandum">Memorandum</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Payment">Payment</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Payroll">Payroll</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Physical Stock">Physical Stock</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Purchase">Purchase</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Purchase Order">Purchase Order</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Receipt">Receipt</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Receipt Note">Receipt Note</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Rejection In">Rejection In</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Rejection Out">Rejection Out</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Reversing Journal">Reversing Journal
+                                    </option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Sales">Sales</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Sales Order">Sales Order</option>
+                                    <option onclick="typ_of_voucher(this.value)" value="Stock Journal">Stock Journal</option>
                                 </select>
                             </div>
                         </div>
