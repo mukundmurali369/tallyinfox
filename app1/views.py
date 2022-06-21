@@ -1,4 +1,5 @@
 from multiprocessing import context
+from sys import flags
 from unicodedata import name
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -40,7 +41,9 @@ def load_create_empgrp(request):
     return render(request,'load_create_empgrp.html')
     
 def load_create_empatnd(request):
-    return render(request,'load_create_empatnd.html')
+    grp = CreateAttendence.objects.all()
+    context={'grp':grp,}
+    return render(request,'load_create_empatnd.html',context)
 
 def load_create_unit(request):
     return render(request,'load_create_unit.html')
@@ -52,8 +55,10 @@ def load_multi_ledger_alter(request):
     return render(request,'load_multi_ledger_alter.html')
 
 def load_rates_of_exchange(request):
-    obj=CreateCurrency.objects.all()
-    context={'grp': obj}
+    grp = CreateCurrency.objects.all()
+    grp2 = CreateCurrency.objects.all().filter(flag="0")
+    obj = CurrencyAlter.objects.all()
+    context={'grp':grp ,'obj':obj,'grp2':grp2}
     return render(request,'load_rates_of_exchange.html',context)
 
 
@@ -135,6 +140,36 @@ def create_currency(request):
         mdl_obj.save()
         return redirect('load_create_currency')
 
+    
+def save_currency_data(request):
+    if request.method == 'POST':
+        sl = request.POST['slno']
+        cname = request.POST['curname']
+        stdr = request.POST['stdr']
+        lvr = request.POST['lvr']
+        sr = request.POST['sr']
+        lvr2 = request.POST['lvr2']
+        sr2 = request.POST['sr2']
+        
+        obj = CurrencyAlter(
+            slno = sl,
+            currencys= cname,
+            stdrate = stdr,
+            lastvrate = lvr,
+            specirate = sr,
+            lastvrate2 = lvr2,
+            specirate2 = sr2,
+            
+            
+           
+        )
+        
+        obj.save()
+        grp = CreateCurrency.objects.all()
+        obj1 = CurrencyAlter.objects.all()
+        context = {'grp':grp ,'obj':obj1}
+        return redirect('load_rates_of_exchange',context)
+
 
 def save_empcat(request):
     if request.method == 'POST':
@@ -152,6 +187,43 @@ def save_empcat(request):
         )
         mdl_obj.save()
         return redirect('load_create_empcat')
+
+
+def save_empgrp(request):
+    if request.method == 'POST':
+        namee = request.POST['name']
+        aliass = request.POST['alias']
+        underr = request.POST['underr']
+        sal = request.POST['sal']
+        
+        mdl_obj = CreateEmployeegroup(
+            name =namee,
+            alias=aliass,
+            under=underr,
+            define_salary=sal,
+           
+        )
+        mdl_obj.save()
+        return redirect('load_create_empcat')
+
+
+def save_empattend(request):
+    if request.method == 'POST':
+        namee = request.POST['name']
+        aliass = request.POST['aliass']
+        underr = request.POST['under']
+        type = request.POST['type']
+        
+        mdl_obj = CreateAttendence(
+            name =namee,
+            alias=aliass,
+            under=underr,
+            typee=type,
+           
+        )
+        mdl_obj.save()
+        return redirect('load_create_empatnd')
+
 
 
 
@@ -204,3 +276,6 @@ def create_voucher(request):
 
     }
     return render(request, 'load_create_vouchertyp', context)
+
+
+

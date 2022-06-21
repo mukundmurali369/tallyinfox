@@ -14,12 +14,15 @@ urlpatterns = [
     path('load_credit_list',views.load_credit_list,name='load_credit_list'),
     path('create_group',views.create_group,name="create_group"),
     path('load_multi_ledger_alter',views.load_multi_ledger_alter,name='load_multi_ledger_alter'),
-    path('create_currency',views.create_currency,name="create_currency"),
+    path('save_currency_data',views.save_currency_data,name="save_currency_data"),
+    
 
     
     path('load_create_employee',views.load_create_employee,name='load_create_employee'), 
     path('load_create_empcat',views.load_create_empcat,name='load_create_empcat'),
-    path('save_empcat',views.save_empcat,name='save_empcat'), 
+    path('save_empcat',views.save_empcat,name='save_empcat'),
+    path('save_empgrp',views.save_empgrp,name='save_empgrp'),
+    path('save_empattend',views.save_empattend,name='save_empattend'),  
     path('load_create_empgrp',views.load_create_empgrp,name='load_create_empgrp'),
     path('load_create_empatnd',views.load_create_empatnd,name='load_create_empatnd'),  
     path('load_create_unit',views.load_create_unit,name='load_create_unit'),  

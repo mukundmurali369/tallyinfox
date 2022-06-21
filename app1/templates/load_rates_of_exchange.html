@@ -78,28 +78,46 @@
         
                     </tr>
                     <tr>
-                        <form action="">
+                        <form action="save_currency_data" method="post">
+                            {% csrf_token %}
                       <td> <input type="text" class="w-100 from-control" name="slno"></td>
-                      <td> <select name="" id="" class="form-control">
-                        {% for i in grp %}
+                      <td> <select name="curname" id="" class="form-control">
+                        {% for i in grp2 %}
                         <option value="{{i.formal_name}}">{{i.formal_name}} ( {{i.ISO_code}} )</option>
                         {% endfor %}
         
         
                       </select></td>
-                      <td> <input type="text" class="w-100 from-control" name="slno"></td>
-                      <td> <input type="text" class="w-100 from-control" name="slno"></td>
-                      <td> <input type="text" class="w-100 from-control" name="slno"></td>
-                      <td> <input type="text" class="w-100 from-control" name="slno"></td>
-                      <td> <input type="text" class="w-100 from-control" name="slno"></td>
+                      <td> <input type="text" class="w-100 from-control" name="stdr"></td>
+                      <td> <input type="text" class="w-100 from-control" name="lvr"></td>
+                      <td> <input type="text" class="w-100 from-control" name="sr"></td>
+                      <td> <input type="text" class="w-100 from-control" name="lvr2"></td>
+                      <td> <input type="text" class="w-100 from-control" name="sr2"></td>
                       <td> <button class="btn btn-success">Enter</button></td> 
                     </form>
                     </tr>
+                    {% for i in obj %}
+                    <tr>
+                       
+                        <td>{{ i.slno }}</td>
+                        <td>{{ i.currencys }}</td>
+                        <td>{{ i.stdrate }}</td>
+                        <td>{{ i.lastvrate }}</td>
+                        <td>{{ i.specirate }}</td>
+                        <td>{{ i.lastvrate2 }}</td>
+                        <td>{{ i.specirate2 }}</td>
+                        <td>no action</td>
+
+
+                    </tr>
+                    
+                    {% endfor %}
                 </Table>
 
             </div>
        
         </div> 
-     
+        
+       
     
 {% endblock %}

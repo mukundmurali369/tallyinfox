@@ -1,4 +1,5 @@
 from decimal import Decimal
+from locale import currency
 from unicodedata import decimal
 from django.db import models
 
@@ -25,12 +26,25 @@ class CreateCurrency(models.Model):
     space_symbol_amount = models.CharField(max_length=225)
     word_after_decimal = models.CharField(max_length=225)
     decimal_no_in_words = models.CharField(max_length=225)
+    flag= models.CharField(max_length=225,default=0)
 
 class CreateEmployeeCategory(models.Model):
     name =models.CharField(max_length=225)
     alias=models.CharField(max_length=225)
     allocate_revenue=models.CharField(max_length=225)
     allocate_nonrevenue=models.CharField(max_length=225)
+
+class CreateEmployeegroup(models.Model):
+    name =models.CharField(max_length=225)
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
+    define_salary=models.CharField(max_length=225)
+
+class CreateAttendence(models.Model):
+    name =models.CharField(max_length=225)
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
+    typee =models.CharField(max_length=225)
 
 
 
@@ -52,3 +66,14 @@ class VoucherModel(models.Model):
     default_juridiction = models.CharField(max_length=225)
     default_title = models.CharField(max_length=225)
     alter_decalaration = models.BooleanField()
+
+
+class CurrencyAlter(models.Model):
+    cname= models.ForeignKey( CreateCurrency,on_delete=models.CASCADE,default=1)
+    slno = models.CharField(max_length=225)
+    currencys = models.CharField(max_length=225)
+    stdrate =models.CharField(max_length=225)
+    lastvrate =models.CharField(max_length=225)
+    specirate =models.CharField(max_length=225)
+    lastvrate2 =models.CharField(max_length=225)
+    specirate2 =models.CharField(max_length=225)
