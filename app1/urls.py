@@ -4,6 +4,7 @@ from .import views
 
 urlpatterns = [
     path('',views.index,name='index'),
+    
     path('load_create_groups',views.load_create_groups,name='load_create_groups'),
     path('load_create_ledger',views.load_create_ledger,name='load_create_ledger'),
     path('load_create_select_currency',views.load_create_select_currency,name='load_create_select_currency'),
@@ -18,7 +19,8 @@ urlpatterns = [
     
 
     
-    path('load_create_employee',views.load_create_employee,name='load_create_employee'), 
+    path('load_create_employee',views.load_create_employee,name='load_create_employee'),
+    path('save_employee',views.save_employee,name='save_employee'),  
     path('load_create_empcat',views.load_create_empcat,name='load_create_empcat'),
     path('save_empcat',views.save_empcat,name='save_empcat'),
     path('save_empgrp',views.save_empgrp,name='save_empgrp'),
