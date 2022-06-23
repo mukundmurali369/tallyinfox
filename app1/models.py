@@ -1,6 +1,8 @@
 from decimal import Decimal
 import email
 from locale import currency
+from optparse import make_option
+
 from unicodedata import decimal
 from django.db import models
 
@@ -49,24 +51,22 @@ class CreateAttendence(models.Model):
 
 
 
-class VoucherModel(models.Model):
+class VoucherModels(models.Model):
     voucher_name = models.CharField(max_length=225)
     alias = models.CharField(max_length=225)
     voucher_type = models.CharField(max_length=225)
     abbreviation = models.CharField(max_length=225)
-    active_this_voucher_type = models.BooleanField()
+    active_this_voucher_type =  models.CharField(max_length=225)
     method_voucher_numbering = models.CharField(max_length=225)
-    use_effective_date = models.BooleanField()
-    allow_zero_value_trns = models.BooleanField()
-    allow_naration_in_voucher = models.BooleanField()
-    enable_default_ac_allocation = models.BooleanField()
-    track_additional_cost_purchase = models.BooleanField()
-    use_as_manf_journal = models.BooleanField()
-    print_voucher_af_save = models.BooleanField()
-    print_formal_recept = models.BooleanField()
-    default_juridiction = models.CharField(max_length=225)
-    default_title = models.CharField(max_length=225)
-    alter_decalaration = models.BooleanField()
+    use_adv_conf = models.CharField(max_length=225,blank=True)
+    prvnt_duplictes = models.CharField(max_length=225,default="Null",blank=True)
+    use_effective_date =  models.CharField(max_length=225,default="Null")
+    allow_zero_value_trns =  models.CharField(max_length=225)
+    allow_naration_in_voucher =  models.CharField(max_length=225)
+    make_optional =  models.CharField(max_length=225)
+    provide_naration =  models.CharField(max_length=225)
+    print_voucher = models.CharField(max_length=225)
+   
 
 
 class CurrencyAlter(models.Model):
@@ -108,12 +108,37 @@ class Employee(models.Model):
 
 
 
+class CompanyModel(models.Model):
+    cname = models.CharField(max_length=225)
+    address = models.CharField(max_length=225)
+    country = models.CharField(max_length=225)
+    state = models.CharField(max_length=225)
+    pincode = models.CharField(max_length=225)
+    telephone = models.CharField(max_length=225)
+    mobile = models.CharField(max_length=225)
+    fax = models.CharField(max_length=225)
+    email = models.EmailField()
+    website = models.CharField(max_length=225)
+    is_status = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
+    #
+    currency_symbol = models.CharField(max_length=225, default='₹')
+    currency_formal_name = models.CharField(max_length=225, default='INR')
+    #
+    financial_year = models.DateField()
+    books_beginning_from = models.DateField()
+
+    def __str__(self):
+        return self.cname
+        
 class LedgerModel(models.Model):
-  
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
     ledger_name = models.CharField(max_length=225)
     ledger_alias = models.CharField(max_length=225)
 
-
+    group = models.ForeignKey(
+        GroupModel, on_delete=models.CASCADE, null=True, blank=True)
     ledger_opening_bal = models.CharField(max_length=225)
     ledger_type = models.CharField(max_length=225)
     type_of_duty = models.CharField(max_length=225)
@@ -128,7 +153,10 @@ class LedgerModel(models.Model):
 
 
 class BankingDetails(models.Model):
-   
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_id = models.ForeignKey(
+        LedgerModel, on_delete=models.CASCADE, null=True, blank=True)
     od_limit = models.CharField(max_length=225)
     holder_name = models.CharField(max_length=225)
     ac_number = models.CharField(max_length=225)
@@ -141,7 +169,10 @@ class BankingDetails(models.Model):
 
 
 class MailingAddressModel(models.Model):
-  
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_id = models.ForeignKey(
+        LedgerModel, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=225)
     address = models.CharField(max_length=225)
     state = models.CharField(max_length=225)
@@ -150,7 +181,10 @@ class MailingAddressModel(models.Model):
 
 
 class TaxRegisterModel(models.Model):
-    
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_id = models.ForeignKey(
+        LedgerModel, on_delete=models.CASCADE, null=True, blank=True)
     gst_uin = models.CharField(max_length=225)
     register_type = models.CharField(max_length=225)
     pan_no = models.CharField(max_length=225)
@@ -158,8 +192,10 @@ class TaxRegisterModel(models.Model):
 
 
 class LedgerSatutoryModel(models.Model):
- 
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_id = models.ForeignKey(
+        LedgerModel, on_delete=models.CASCADE, null=True, blank=True)
     assessable_calculation = models.CharField(max_length=225)
     gst_applicable = models.CharField(max_length=225)
     type_of_supply = models.CharField(max_length=225)
-

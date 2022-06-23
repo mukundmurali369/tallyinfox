@@ -305,21 +305,37 @@ def create_voucher(request):
         abbre = request.POST['abbre']
         activ_vou_typ = request.POST['avtyp']  # bool
         meth_vou_num = request.POST['meth_vou_num']
+        useadv = request.POST.get('useadvc', False)
+        prvtdp = request.POST.get('prvtdp', False)
+        # useadv= request.POST['useadvc']
+        # prvtdp= request.POST['prvtdp']
+
+        # if meth_vou_num == "auto":
+        #     useadv= request.POST['useadvc']
+        #     prvtdp ="Null"
+        # elif meth_vou_num == "manu":
+        #     prvtdp= request.POST['prvtdp']
+        #     useadv ="Null"
+        # elif meth_vou_num == "overd":
+        #     prvtdp= request.POST['prvtdp']
+        #     useadv = request.POST['useadvc']
+        # elif meth_vou_num == "multi":
+        #     useadv= request.POST['useadvc']
+        #     prvtdp ="Null"
+        # else:
+        #     prvtdp="Null"
+        #     useadv="Null"
+
+
         use_effct_date = request.POST['uefftdate']  # bool
         allow_zero_trans = request.POST['allow_zero_trans']  # bool
         allow_naration_in_vou = request.POST['allow_naration_in_vou']  # bool
-        enbl_def_accout_alloc = request.POST['enbl_def_accout_alloc']  # bool
-        track_addi_coast = request.POST['track_addi_coast']  # bool
-        # bool
-        use_as_manfacturing_journal = request.POST['use_as_manfacturing_journal']
-        #
-        print_vou_aft_save = request.POST['print_vou_aft_save']  # b
-        print_formal_recept = request.POST['print_formal_recept']  # b
-        def_juri = request.POST['def_juri']
-        default_title = request.POST['default_title']
-        alte_declaration = request.POST['alte_declaration']  # b
+        optional = request.POST['optional'] 
+        provide_narr = request.POST['providenr']  # bool
+        print = request.POST['print']  # bool
+        
+        mdl = VoucherModels(
 
-        mdl = VoucherModel(
             voucher_name=Vname,
             alias=alias,
             voucher_type=vtype,
@@ -327,25 +343,19 @@ def create_voucher(request):
             active_this_voucher_type=activ_vou_typ,
             method_voucher_numbering=meth_vou_num,
             use_effective_date=use_effct_date,
+            use_adv_conf = useadv,
+            prvnt_duplictes =prvtdp,
             allow_zero_value_trns=allow_zero_trans,
             allow_naration_in_voucher=allow_naration_in_vou,
-            enable_default_ac_allocation=enbl_def_accout_alloc,
-            track_additional_cost_purchase=track_addi_coast,
-            use_as_manf_journal=use_as_manfacturing_journal,
-            print_voucher_af_save=print_vou_aft_save,
-            print_formal_recept=print_formal_recept,
-            default_juridiction=def_juri,
-            default_title=default_title,
-            alter_decalaration=alte_declaration,
+            make_optional=optional,
+            provide_naration=provide_narr,
+            print_voucher=print,
 
         )
         mdl.save()
-        return redirect('base.html')
+        return redirect('load_create_vouchertyp')
 
-    context = {
-
-    }
-    return render(request, 'load_create_vouchertyp', context)
+    return render(request, 'load_create_vouchertyp')
 
 
 

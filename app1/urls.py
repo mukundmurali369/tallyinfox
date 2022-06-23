@@ -12,6 +12,7 @@ urlpatterns = [
     path('load_rates_of_exchange',views.load_rates_of_exchange,name='load_rates_of_exchange'),
     path('load_alter_currency',views.load_alter_currency,name='load_alter_currency'),
     path('load_create_vouchertyp',views.load_create_vouchertyp,name='load_create_vouchertyp'),
+    path('create_voucher',views.create_voucher,name="create_voucher"),
     path('load_credit_list',views.load_credit_list,name='load_credit_list'),
     path('create_group',views.create_group,name="create_group"),
     path('load_multi_ledger_alter',views.load_multi_ledger_alter,name='load_multi_ledger_alter'),
