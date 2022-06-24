@@ -49,18 +49,20 @@
 
                         <div class="row container-fluid  p-2 m-0">
                             <div class="col-sm-6 m-0 p-0"> <label for="c">Under</label></div>
+                            
                             <div class="col-sm-6 m-0 p-0">
-                                <select name="under" id="c" class="form-control">
-                                    <option value="Bank Account">Bank Accouts</option>
+                                <select name="under" id="under" class="form-control" onchange="showunder()">
+                                    <option value="">----Select-----</option>
+                                    <option value="BankAccount1">BankAccouts</option>
                                     <option value="Bank OCC A/c">Bank OCC A/c</option>
-                                    <option value="Bank OD A/c">Bank OD A/c</option>
+                                    <option value="Bankod1">Bank OD A/c</option>
                                     <option value="Bank_Account">Branch Divisions</option>
                                     <option value="Bank_Account">Capital Amount</option>
                                     <option value="Bank_Account">Cash in Hand</option>
-                                    <option value="Bank_Account">Current Assets</option>
-                                    <option value="Bank_Account">Current Liabilities</option>
+                                    <option value="curntasts1">Current Assets</option>
+                                    <option value="">Current Liabilities</option>
                                     <option value="Bank_Account">Deposits (Asset)</option>
-                                    <option value="Bank_Account">Direct Expenses</option>
+                                    <option value="dirctexpncs1">Direct Expenses</option>
                                     <option value="Bank_Account">Direct Incomes</option>
                                     <option value="Bank_Account">Duties and Taxes</option>
                                     <option value="Bank_Account">Expenses(Direct)</option>
@@ -85,6 +87,402 @@
                                     <option value="Bank_Account">Unsecured Loans</option>   
                                 </select>
                             </div>
+                            
+
+
+    <div class="bankac hide p-0 m-0 w-100" id="bankac">
+        
+        <h6 class="p-3">Bank Account Details</h6>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">A/c Holders Name</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="acna" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">A/c Number</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="acno" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">IFS Code</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="ifs" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">SWIfT Code</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="swift" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Bank Name</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="" class="form-control">
+                    <option value="not applicable">Not applicable</option> 
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">Branch</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="branch" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Set/Alter Range of cheque Books</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqrng" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Enable Cheque printing</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqprnt" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Set/Alter Cheque Printing Configuration</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqconfg" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+
+
+<div class="bankod hide p-0 py-sm-3 m-0 w-100"id="bankod">
+
+    <div class="row container-fluid  p-2 m-0" >
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Set OD limit</label></div>
+        <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="odlimit" placeholder="" name="odlimit"></div>
+        
+    </div>
+
+ <h6>Bank Account Details</h6>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">A/c Holders Name</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="acna" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">A/c Number</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="acno" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">IFS Code</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="ifs" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">SWIfT Code</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="swift" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Bank Name</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="" class="form-control">
+                    <option value="not applicable">Not applicable</option> 
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid  p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">Branch</label></div>
+            <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="branch" placeholder="" name=""></div>
+            
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Set/Alter Range of cheque Books</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqrng" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Enable Cheque printing</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqprnt" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid   p-2 m-0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Set/Alter Cheque Printing Configuration</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="chqconfg" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+</div>
+
+<div class="curntasts hide p-0 m-0 w-100" id="curntasts">
+<h6 class="p-3">Statutory Details</h6>
+
+<div class="row container-fluid   p-2 m-0">
+    <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Include assessable value calculations for </label></div>
+    <div class="col-sm-6 m-0 p-0">
+        <select name="" id="calcgst" class="form-control" onchange="showAssets()">
+            <option value="Not_Applicable">Not Applicable</option>
+            <option value="GST">GST</option>  
+            
+        </select>
+    </div>
+</div>
+
+
+
+<div class="row container-fluid   p-2 m-0 hide" id="Approp0">
+    <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Appropriate to</label></div>
+    <div class="col-sm-6 m-0 p-0">
+        <select name="" id="Approp" class="form-control" onchange="showbased()">
+            <option value="Both">Both</option>
+            <option value="Goods">Goods</option>
+            <option value="Services">Services</option>   
+            
+        </select>
+    </div>
+</div>
+
+<div class="row container-fluid   p-2 m-0 hide " id="mtdcalc0">
+    <div class="col-sm-6 m-0 p-0 "> <label for="mtdcalc">Method of Calculation</label></div>
+    <div class="col-sm-6 m-0 p-0">
+        <select name="" id="mtdcalc" class="form-control">
+            <option value="Based_on_Value" >Based on value</option>
+            <option value="Based_on_Quntity" id="qlty">Based on quantity</option>    
+        </select>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    .hide{
+        display: none;
+        align-items:center;
+        justify-content:center;
+        flex-direction: column;
+    }
+</style>
+
+
+<script>
+    function showAssets(){
+            var status = document.getElementById("calcgst");
+            var a = status.value
+            console.log(a);
+            if( a == "GST" ){
+                console.log(a);
+
+                document.getElementById('mtdcalc0').style.display = "flex";
+                document.getElementById('Approp0').style.display = "flex";
+            }
+            else{
+                
+                document.getElementById('mtdcalc0').style.display = "none";
+                document.getElementById('Approp0').style.display = "none";
+            }
+        }
+
+        function showunder(){
+            var status = document.getElementById("under");
+            var a = status.value
+            console.log(a);
+            if( a == "BankAccount1" ){
+                console.log(a);
+
+                document.getElementById('bankac').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('curntasts').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('bank2').style.display = "none";
+                document.getElementById('bank3').style.display = "none";
+               
+                
+            }
+            else if( a == "Bankod1" ) {
+                
+                document.getElementById('bankod').style.display = "flex";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('curntasts').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('bank2').style.display = "none";
+                document.getElementById('bank3').style.display = "none";
+               
+            }
+            else if( a == "curntasts1" ) {
+                
+                document.getElementById('curntasts').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+               
+            }
+            else if( a == "dirctexpncs1" ) {
+                
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('curntasts').style.display = "none";
+               
+            }
+            else{
+                document.getElementById('direct_expences').style.display = "none";
+               
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('curntasts').style.display = "none";
+                document.getElementById('bank2').style.display = "block";
+                document.getElementById('bank3').style.display = "flex";
+               
+               
+
+            }
+
+        }
+
+        function showbased(){
+            var status = document.getElementById("Approp");
+            var a = status.value
+            console.log(a);
+            if( a == "Services" ){
+                console.log(a);
+
+                document.getElementById('qlty').style.display = "none";
+                
+            }
+            else{
+                document.getElementById('qlty').style.display = "block";
+                
+            }
+        }
+    
+</script>
+</div>
+
+
+<div class="dirctexpncs hide p-0 m-0 w-100" id="direct_expences">
+
+    <div class="row container-fluid   p-2 m-0 " id="typldr0">
+        <div class="col-sm-6 m-0 p-0 "> <label for="">Types of ledger</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="typldr" id="typldr" class="form-control">
+                <option value="null">----Select---</option>
+                <option value="Not_applicable">Not Applicable</option>
+                <option value="Discount">Discount</option>
+                <option value="Discount">Invoice Rounding</option>    
+            </select>
+        </div>
+    </div>
+
+    <div class="row container-fluid   p-2 m-0" id="roundmd0">
+        <div class="col-sm-6 m-0 p-0 "> <label for="">Rounding Method</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="roundmd" id="roundmd" class="form-control">
+                <option value="Down_Rounding">Down Rounding</option>
+                <option value="Normal_Rounding">Normal Rounding</option>
+                <option value="Up_Rounding">Up Rounding</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="row container-fluid  p-2 m-0"  id="rndlmt0" >
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Round limit</label></div>
+        <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="rndlmt" placeholder="" name="rndlmt" value="1"></div>
+    </div>
+
+
+    <div class="strydtls" >
+        <h6>Statutory Details</h6>
+        <div class="row container-fluid   p-2 m-0" id="roundmd0">
+            <div class="col-sm-6 m-0 p-0 "> <label for="">Is GST applicable</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="roundmd" id="roundmd" class="form-control">
+                    <option value="Not_Applicable"> Not Applicable</option>
+                    <option value="Applicable">Applicable</option>
+                    <option value="Undefine">Undefined</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row container-fluid  p-2 m-0" id="stgst0">
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">Set/Alter GST details </label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="stgst" class="form-control">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>  
+                    
+                </select>
+            </div>          
+        </div>
+
+        <div class="row container-fluid  p-2 m-0"  id="rndlmt0" >
+            <div class="col-sm-6 m-0 p-0"> <label for="pan">Types of Supply</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="stgst" class="form-control">
+                    <option value="Service">Service</option>
+                    <option value="Goods">Goods</option>  
+                    
+                </select>
+            </div>
+        </div>
+
+    </div>
+    
+
+
+</div>
+
+
+
+
+
+
+
+
+
                         </div>
 
                     </div>
@@ -378,9 +776,9 @@
 
 
                         <div class="col-sm-4 m-0 p-4" style=" border-right: 1px solid rgba(128, 128, 128, 0.6);">
-                        <div class="row container-fluid   p-2 m-0">
-                            <h6>Banking Details</h6>
-                            <div class="row container-fluid   p-2 m-0">
+                        <div class="row container-fluid   p-2 m-0" >
+                            <h6 id="bank2">Banking Details</h6>
+                            <div class="row container-fluid   p-2 m-0" id="bank3" >
                                 <div class="col-sm-6 m-0 p-0"> <label for="bank">Provide bank details</label></div>
                                 <div class="col-sm-6 m-0 p-0">
                                     <select name="Activate" id="bank" class="form-control">
