@@ -403,21 +403,22 @@
 </div>
 
 
+
 <div class="dirctexpncs hide p-0 m-0 w-100" id="direct_expences">
 
     <div class="row container-fluid   p-2 m-0 " id="typldr0">
         <div class="col-sm-6 m-0 p-0 "> <label for="">Types of ledger</label></div>
         <div class="col-sm-6 m-0 p-0">
-            <select name="typldr" id="typldr" class="form-control">
+            <select name="typldr" id="typldr" class="form-control" onchange="showdirctexp2()">
                 <option value="null">----Select---</option>
                 <option value="Not_applicable">Not Applicable</option>
                 <option value="Discount">Discount</option>
-                <option value="Discount">Invoice Rounding</option>    
+                <option value="invroundg">Invoice Rounding</option>    
             </select>
         </div>
     </div>
 
-    <div class="row container-fluid   p-2 m-0" id="roundmd0">
+    <div class="row container-fluid   p-2 m-0 hide w-100" id="roundmd0">
         <div class="col-sm-6 m-0 p-0 "> <label for="">Rounding Method</label></div>
         <div class="col-sm-6 m-0 p-0">
             <select name="roundmd" id="roundmd" class="form-control">
@@ -428,26 +429,28 @@
         </div>
     </div>
     
-    <div class="row container-fluid  p-2 m-0"  id="rndlmt0" >
+    <div class="row container-fluid  p-2 m-0 hide w-100"  id="rndlmt0" >
         <div class="col-sm-6 m-0 p-0"> <label for="pan">Round limit</label></div>
         <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="rndlmt" placeholder="" name="rndlmt" value="1"></div>
     </div>
 
 
-    <div class="strydtls" >
+    <div class="dirctexpns2 hide p-0 m-0 w-100" id="dirctexpns2">
+
+    
         <h6>Statutory Details</h6>
-        <div class="row container-fluid   p-2 m-0" id="roundmd0">
+        <div class="row container-fluid   p-2 m-0" id="applicablegst0">
             <div class="col-sm-6 m-0 p-0 "> <label for="">Is GST applicable</label></div>
             <div class="col-sm-6 m-0 p-0">
-                <select name="roundmd" id="roundmd" class="form-control">
+                <select name="applicablegst" id="applicablegst" class="form-control" onchange="showdirctexp3()">
                     <option value="Not_Applicable"> Not Applicable</option>
                     <option value="Applicable">Applicable</option>
-                    <option value="Undefine">Undefined</option>
+                    <option value="Undefined">Undefined</option>
                 </select>
             </div>
-        </div>
+        </div>         
 
-        <div class="row container-fluid  p-2 m-0" id="stgst0">
+        <div class="row container-fluid  p-2 m-0 hide" id="stgst0">
             <div class="col-sm-6 m-0 p-0"> <label for="pan">Set/Alter GST details </label></div>
             <div class="col-sm-6 m-0 p-0">
                 <select name="" id="stgst" class="form-control">
@@ -458,10 +461,10 @@
             </div>          
         </div>
 
-        <div class="row container-fluid  p-2 m-0"  id="rndlmt0" >
+        <div class="row container-fluid  p-2 m-0 hide w-100"  id="typsofsply0" >
             <div class="col-sm-6 m-0 p-0"> <label for="pan">Types of Supply</label></div>
             <div class="col-sm-6 m-0 p-0">
-                <select name="" id="stgst" class="form-control">
+                <select name="" id="typsofsply" class="form-control">
                     <option value="Service">Service</option>
                     <option value="Goods">Goods</option>  
                     
@@ -469,9 +472,131 @@
             </div>
         </div>
 
-    </div>
-    
 
+        <div class="row container-fluid   p-2 m-0 hide" id="calcgst0">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Include assessable value calculations for </label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="calcgst2" class="form-control" onchange="showAssets2()">
+                    <option value="Not_Applicable">Not Applicable</option>
+                    <option value="GST">GST</option>  
+                    
+                </select>
+            </div>
+        </div>
+        
+        
+        
+        <div class="row container-fluid   p-2 m-0 hide" id="Approp01">
+            <div class="col-sm-6 m-0 p-0"> <label for="rgtype" >Appropriate to</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="Approp1" class="form-control" onchange="showbased()">
+                    <option value="Both">Both</option>
+                    <option value="Goods">Goods</option>
+                    <option value="Services">Services</option>   
+                    
+                </select>
+            </div>
+        </div>
+        
+        <div class="row container-fluid   p-2 m-0 hide " id="mtdcalc01">
+            <div class="col-sm-6 m-0 p-0 "> <label for="mtdcalc">Method of Calculation</label></div>
+            <div class="col-sm-6 m-0 p-0">
+                <select name="" id="mtdcalc1" class="form-control">
+                    <option value="Based_on_Value" >Based on value</option>
+                    <option value="Based_on_Quntity" id="qlty">Based on quantity</option>    
+                </select>
+            </div>
+        </div>
+        
+        
+        
+        
+
+    
+    
+</div>
+<script>
+    
+function showdirctexp2(){
+    var status = document.getElementById("typldr");
+    var a = status.value
+    console.log(a);
+    if( a == "Not_applicable" ){
+        console.log(a);
+
+        document.getElementById('dirctexpns2').style.display = "block";
+        document.getElementById('roundmd0').style.display = "none";
+        document.getElementById('rndlmt0').style.display = "none";
+    }
+    else if( a == "invroundg" ){
+        console.log(a);
+
+        document.getElementById('roundmd0').style.display = "block";
+        document.getElementById('rndlmt0').style.display = "block";
+        document.getElementById('dirctexpns2').style.display = "none";
+        
+    }
+    else{
+        document.getElementById('dirctexpns2').style.display = "none";
+        document.getElementById('roundmd0').style.display = "none";
+        document.getElementById('rndlmt0').style.display = "none";
+        
+    }
+}
+function showdirctexp3(){
+    var status = document.getElementById("applicablegst");
+    var a = status.value
+    console.log(a);
+    if( a == "Applicable" ){
+        console.log(a);
+
+        document.getElementById('stgst0').style.display = "block";
+        document.getElementById('typsofsply0').style.display = "block";
+        document.getElementById('calcgst0').style.display = "none";
+        
+    }
+    else if( a == "Not_Applicable" ){
+        console.log(a);
+
+        document.getElementById('calcgst0').style.display = "block";
+        document.getElementById('stgst0').style.display = "none";
+        document.getElementById('typsofsply0').style.display = "none";
+        
+    }
+    else if( a == "Undefined" ){
+        console.log(a);
+
+        document.getElementById('calcgst0').style.display = "none";
+        document.getElementById('stgst0').style.display = "block";
+        document.getElementById('typsofsply0').style.display = "block";
+        
+    }
+
+    else{
+        document.getElementById('stgst0').style.display = "none";
+        document.getElementById('typsofsply0').style.display = "none";
+        document.getElementById('calcgst0').style.display = "none";
+    }
+}
+
+function showAssets2(){
+    var status = document.getElementById("calcgst2");
+    var a = status.value
+    console.log(a);
+    if( a == "GST" ){
+        console.log(a);
+
+        document.getElementById('mtdcalc01').style.display = "block";
+        document.getElementById('Approp01').style.display = "block";
+    }
+    else{
+        
+        document.getElementById('mtdcalc01').style.display = "none";
+        document.getElementById('Approp01').style.display = "none";
+    }
+}
+
+</script>
 
 </div>
 
