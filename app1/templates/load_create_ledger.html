@@ -65,26 +65,25 @@
                                     <option value="dirctexpncs1">Direct Expenses</option>
                                     <option value="dirctincome">Direct Incomes</option>
                                     <option value="dutiesAndtax">Duties and Taxes</option>
-                                    <option value="Bank_Account">Expenses(Direct)</option>
-                                    <option value="Bank_Account">Expenses(Indirect)</option>
-                                    <option value="Bank_Account">Fixed Assets</option>
-                                    <option value="Bank_Account">Income (Direct)</option>
-                                    <option value="Bank_Account">Income (Indirect)</option>
-                                    <option value="Bank_Account">Investments</option>
-                                    <option value="Bank_Account">Loans & Advances (Asset)</option>
-                                    <option value="Bank_Account">Loans (Liability)</option>
-                                    <option value="Bank_Account">Misc. Expenses (Asset)</option>
-                                    <option value="Bank_Account">provisions</option>
-                                    <option value="Bank_Account">Purchase Accounts</option>
-                                    <option value="Bank_Account">Reserves & Surplus</option>
-                                    <option value="Bank_Account">Retained Earnings</option>
-                                    <option value="Bank_Account">Sales Accounts</option>
-                                    <option value="Bank_Account">Secured Loans</option>
-                                    <option value="Bank_Account">Stock-in-Hand</option>
-                                    <option value="Bank_Account">Sundry Creditors</option>
-                                    <option value="Bank_Account">Sundry Debtors</option>
-                                    <option value="Bank_Account">Suspence A/c</option>
-                                    <option value="Bank_Account">Unsecured Loans</option>   
+                                    <option value="Expences_Direct">Expenses(Direct)</option>
+                                    <option value="Expences_Indirect">Expenses(Indirect)</option>
+                                    <option value="Fixed_Assets">Fixed Assets</option>
+                                    <option value="income_direct">Income (Direct)</option>
+                                    <option value="income_Indirect">Income (Indirect)</option>
+                                    <option value="Investments">Investments</option>
+                                    <option value="loans_advance">Loans & Advances (Asset)</option>
+                                    <option value="Loans_liability">Loans (Liability)</option>
+                                    <option value="Mis_Expenses">Misc. Expenses (Asset)</option>
+                                    <option value="provisions">provisions</option>
+                                    <option value="Purchase_Account">Purchase Accounts</option>
+                                    <option value="retained">Retained Earnings</option>
+                                    <option value="Sales_Account">Sales Accounts</option>
+                                    <option value="Secured_loans">Secured Loans</option>
+                                    <option value="stock">Stock-in-Hand</option>
+                                    <option value="Sundry_Creditors">Sundry Creditors</option>
+                                    <option value="Sundry_Debtors">Sundry Debtors</option>
+                                    <option value="Suspence">Suspence A/c</option>
+                                    <option value="Unsecured_loans">Unsecured Loans</option>   
                                 </select>
                             </div>
                             
@@ -319,6 +318,7 @@
                 document.getElementById('bank3').style.display = "none";
                 document.getElementById('roundmd20').style.display = "none";
                 document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                
                 
             }
@@ -333,6 +333,7 @@
                 document.getElementById('roundmd20').style.display = "none";
                 document.getElementById('applicablegst0').style.display = "none";
                 document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                
             }
             else if( a == "curntasts1" ) {
@@ -343,6 +344,7 @@
                 document.getElementById('direct_expences').style.display = "none";
                 document.getElementById('applicablegst0').style.display = "none";
                 document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                
             }
             else if( a == "dirctexpncs1" ) {
@@ -354,6 +356,7 @@
                 document.getElementById('Statutory_Details').style.display = "none";
                 document.getElementById('roundmd20').style.display = "none";
                 document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                
             }
             
@@ -366,6 +369,7 @@
                 document.getElementById('roundmd20').style.display = "none";
                 document.getElementById('applicablegst0').style.display = "flex";
                 document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                
             }
             else if( a == "dutiesAndtax" ) {
@@ -377,9 +381,153 @@
                 document.getElementById('Statutory_Details').style.display = "none";
                 document.getElementById('roundmd20').style.display = "none";
                 document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('dirctexpns4').style.display = "none";
                
             }
+            else if( a == "Expences_Direct" ) {
+                
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Expences_Inirect" ) {
+                
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Fixed_Assets" ) {
+
+                document.getElementById('dirctexpns4').style.display = "flex";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+
+               
+            }
+            else if( a == "income_direct" ) {
+                
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "income_Indirect" ) {
+                
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Loans_liability" ) {
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Purchase_Account" ) {
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Sales_Account" ) {
+                document.getElementById('direct_expences').style.display = "flex";
+                document.getElementById('applicablegst0').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Secured_loans" ) {
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Sundry_Creditors" ) {
+                document.getElementById('Sundry_commit').style.display = "flex";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+            else if( a == "Sundry_Debtors" ) {
+                document.getElementById('Sundry_commit').style.display = "flex";
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "none";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+               
+            }
+
+            else if( a == "Unsecured_loans" ) {
+                document.getElementById('roundmd20').style.display = "none";
+                document.getElementById('Statutory_Details').style.display = "flex";
+                document.getElementById('bankod').style.display = "none";
+                document.getElementById('bankac').style.display = "none";
+                document.getElementById('direct_expences').style.display = "none";
+                document.getElementById('applicablegst0').style.display = "none";
+                document.getElementById('dutiesandtax1').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
+            }
+
             else{
+                document.getElementById('Sundry_commit').style.display = "none";
+                document.getElementById('dirctexpns4').style.display = "none";
                 document.getElementById('direct_expences').style.display = "none";
                 document.getElementById('dutiesandtax1').style.display = "none";
                 document.getElementById('bankod').style.display = "none";
@@ -388,7 +536,6 @@
                 document.getElementById('bank2').style.display = "block";
                 document.getElementById('bank3').style.display = "flex";
                 document.getElementById('applicablegst0').style.display = "none";
-               
                
 
             }
@@ -769,7 +916,6 @@ function showdutiesandtax4(){
 
 
 
-
 </script>
 
 
@@ -801,6 +947,141 @@ function showdutiesandtax4(){
     <div class="col-sm-6 m-0 p-0"> <label for="pan">Round limit</label></div>
     <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="rndlmt2" placeholder="" name="rndlmt2" value="1"></div>
 </div>
+
+<div class="dirctexpns4 hide py-3 m-0 w-100" id="dirctexpns4">
+
+    <h5>Statutory Details</h5>
+    <div class="row container-fluid   p-2 m-0 " id="applicablegst20">
+        <div class="col-sm-6 m-0 p-0 "> <label for="">Is GST applicable</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="applicablegst" id="applicablegst2" class="form-control" onchange="showdirctexp4()">
+                <option value="">----Select----</option>
+                <option value="Not_Applicable"> Not Applicable</option>
+                <option value="Applicable">Applicable</option>
+                <option value="Undefined">Undefined</option>
+            </select>
+        </div>
+    </div>         
+
+    <div class="row container-fluid  p-2 m-0 hide" id="stgst20">
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Set/Alter GST details </label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="" id="stgst2" class="form-control">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>  
+                
+            </select>
+        </div>          
+    </div>
+
+    <div class="row container-fluid  p-2 m-0  w-100 hide"  id="typsofsply20" >
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Types of Supply</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="" id="typsofsply2" class="form-control">
+                <option value="Service">Service</option>
+                <option value="Goods">Goods</option>  
+                
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+    
+function showdirctexp4(){
+    var status = document.getElementById("applicablegst2");
+    var a = status.value
+    console.log(a);
+    console.log("hope");
+    if( a == "Applicable" ){
+        console.log(a);
+
+        document.getElementById('stgst20').style.display = "flex";
+        document.getElementById('typsofsply20').style.display = "flex";
+        
+        
+    }
+    else if( a == "Not_Applicable" ){
+        console.log(a);
+
+        
+        document.getElementById('stgst20').style.display = "none";
+        document.getElementById('typsofsply20').style.display = "none";
+        
+    }
+    else if( a == "Undefined" ){
+        console.log(a);
+
+       
+        document.getElementById('stgst20').style.display = "none";
+        document.getElementById('typsofsply20').style.display = "flex";
+        
+    }
+
+    else{
+        document.getElementById('stgst20').style.display = "none";
+        document.getElementById('typsofsply20').style.display = "none";
+        
+    }
+}
+
+
+</script>
+
+
+<div class="Sundry_commit py-2 m-0 hide" id="Sundry_commit">
+
+    <div class="row container-fluid  p-2 m-0 " id="billbybill0">
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Maintain balance Bill by Bill</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="" id="billbybill" class="form-control" onchange="bill()">
+                <option value="">--Select---</option> 
+                <option value="Yes">Yes</option>  
+                <option value="No">No</option>
+
+            </select>
+        </div>          
+    </div>
+
+    <div class="row container-fluid  p-2 m-0 hide w-100"  id="Default_Credit_period0" >
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Default credit period</label></div>
+        <div class="col-sm-6 m-0 p-0"><input type="text" class="form-control" id="Default_Credit_period" placeholder="" name="rndlmt" value="1"></div>
+    </div>
+
+    <div class="row container-fluid  p-2 m-0 hide" id="creditdays0">
+        <div class="col-sm-6 m-0 p-0"> <label for="pan">Check for credit days during voucher enter</label></div>
+        <div class="col-sm-6 m-0 p-0">
+            <select name="" id="creditdays" class="form-control">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>  
+            </select>
+        </div>          
+    </div>
+
+
+
+</div>
+<script>
+    
+function bill(){
+            var status = document.getElementById("billbybill");
+            var a = status.value
+            console.log(a);
+            if( a == "Yes" ){
+                console.log(a);
+
+                document.getElementById('Default_Credit_period0').style.display = "flex";
+                document.getElementById('creditdays0').style.display = "flex";
+            }
+            else{
+                
+                document.getElementById('Default_Credit_period0').style.display = "none";
+                document.getElementById('creditdays0').style.display = "none";
+            }
+        }
+
+</script>
+
+
 
 
 
