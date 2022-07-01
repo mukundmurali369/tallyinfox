@@ -13,15 +13,16 @@
 
   <div class="m-0">
     <h6 style="" class="bg-info text-light p-2 m-0 text-center">Create ledger</h6>
-            <form  style="background-color:rgba(0,0,0,.4);">
+            <form  style="background-color:rgba(0,0,0,.4);" method="post" action="save_ledger">
+                {% csrf_token %}
                 
                 <div class="row container-fluid p-0 m-0" >
 
                     <div class="col-sm-6 m-0 p-4">
 
                         <div class="row container-fluid  p-2 m-0">
-                            <div class="col-sm-4 m-0 p-0"> <label for="a">Name</label></div>
-                            <div class="col-sm-8 m-0 p-0"><input type="text" class="form-control" id="a" placeholder="" name="ledger_name "></div>
+                            <div class="col-sm-4 m-0 p-0"> <label for="a" >Name</label></div>
+                            <div class="col-sm-8 m-0 p-0"><input required type="text" class="form-control" id="ledger_name" oninput="addname()" placeholder="" name="ledger_name "></div>
                         </div>
 
                         <div class="row container-fluid  p-2 m-0">
@@ -51,16 +52,16 @@
                             <div class="col-sm-6 m-0 p-0"> <label for="c">Under</label></div>
                             
                             <div class="col-sm-6 m-0 p-0">
-                                <select name="group_under" id="under" class="form-control" onchange="showunder()">
+                                <select name="group_under" id="under" class="form-control" onchange="showunder()" required>
                                     <option value="">----Select-----</option>
                                     <option value="BankAccount1">BankAccouts</option>
-                                    <option value="Bank OCC A/c">Bank OCC A/c</option>
+                                    <option value="Bank_OCC_AC">Bank OCC A/c</option>
                                     <option value="Bankod1">Bank OD A/c</option>
-                                    <option value="Bank_Account">Branch Divisions</option>
-                                    <option value="Bank_Account">Capital Amount</option>
-                                    <option value="Bank_Account">Cash in Hand</option>
+                                    <option value="Branch_divisions">Branch Divisions</option>
+                                    <option value="Capital_amount">Capital Amount</option>
+                                    <option value="Cash_in_hand">Cash in Hand</option>
                                     <option value="curntasts1">Current Assets</option>
-                                    <option value="">Current Liabilities</option>
+                                    <option value="current_liabilities">Current Liabilities</option>
                                     <option value="Bank_Account">Deposits (Asset)</option>
                                     <option value="dirctexpncs1">Direct Expenses</option>
                                     <option value="dirctincome">Direct Incomes</option>
@@ -304,8 +305,14 @@
     
 
         function showunder(){
+            
+            var name = document.getElementById("ledger_name");
+            var mail_name = name.value;
+            document.getElementById("mailname").value= mail_name;
+
+
             var status = document.getElementById("under");
-            var a = status.value
+            var a = status.value;
             console.log(a);
             if( a == "BankAccount1" ){
                 console.log(a);
@@ -605,7 +612,7 @@ function rounding(){
         <div class="row container-fluid   p-2 m-0" id="applicablegst0">
             <div class="col-sm-6 m-0 p-0 "> <label for="">Is GST applicable</label></div>
             <div class="col-sm-6 m-0 p-0">
-                <select name="gst_applicable" id="applicablegst" class="form-control" onchange="showdirctexp3()">
+                <select name="is_gst_applicable" id="applicablegst" class="form-control" onchange="showdirctexp3()">
                     <option value="Not_Applicable"> Not Applicable</option>
                     <option value="Applicable">Applicable</option>
                     <option value="Undefined">Undefined</option>
@@ -744,7 +751,7 @@ function showdirctexp3(){
 
 function showAssets2(){
     var status = document.getElementById("calcgst2");
-    var a = status.value
+    var a = status.value;
     console.log(a);
     if( a == "GST" ){
         console.log(a);
@@ -954,7 +961,7 @@ function showdutiesandtax4(){
     <div class="row container-fluid   p-2 m-0 " id="applicablegst20">
         <div class="col-sm-6 m-0 p-0 "> <label for="">Is GST applicable</label></div>
         <div class="col-sm-6 m-0 p-0">
-            <select name="gst_applicable" id="applicablegst2" class="form-control" onchange="showdirctexp4()">
+            <select name="is_gst_applicable" id="applicablegst2" class="form-control" onchange="showdirctexp4()">
                 <option value="">----Select----</option>
                 <option value="Not_Applicable"> Not Applicable</option>
                 <option value="Applicable">Applicable</option>
@@ -1137,7 +1144,7 @@ function bill(){
 
                         <div class="row container-fluid  p-2 m-0">
                             <div class="col-sm-6 m-0 p-0"> <label for="a">Name</label></div>
-                            <div class="col-sm-6 m-0 p-0"><input name="name" type="text" class="form-control" id="a" placeholder=""></div>
+                            <div class="col-sm-6 m-0 p-0"><input name="name" type="text" id="mailname" class="form-control" placeholder=""></div>
                             
                         </div>
                         <div class="row container-fluid   p-2 m-0">
@@ -1462,7 +1469,12 @@ function bill(){
 
                             <div class="row container-fluid  p-2 m-0">
                                 <div class="col-sm-6 m-0 p-0"> <label for="setgst">Set/Alter GST Details</label></div>
-                                <div class="col-sm-6 m-0 p-0"><input name="alter_gst_details" type="text" class="form-control" id="setgst" placeholder=""></div>
+                                <div class="col-sm-6 m-0 p-0">
+                                    <select name="alter_gst_details" id="stgst" class="form-control">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>  
+                                    </select>
+                            </div>
                                 
                             </div>
 
@@ -1480,6 +1492,7 @@ function bill(){
                 
             </form>
         </div>
-        
+
+  
         
     {% endblock %}

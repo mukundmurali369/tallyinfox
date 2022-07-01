@@ -7,6 +7,7 @@ urlpatterns = [
     
     path('load_create_groups',views.load_create_groups,name='load_create_groups'),
     path('load_create_ledger',views.load_create_ledger,name='load_create_ledger'),
+    path('save_ledger',views.save_ledger,name='save_ledger'),
     path('load_create_select_currency',views.load_create_select_currency,name='load_create_select_currency'),
     path('load_create_currency',views.load_create_currency,name='load_create_currency'),
     path('load_rates_of_exchange',views.load_rates_of_exchange,name='load_rates_of_exchange'),

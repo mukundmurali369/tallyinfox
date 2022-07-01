@@ -11,6 +11,8 @@ class GroupModel(models.Model):
     name = models.CharField(max_length=225)
     alias = models.CharField(max_length=225,null=True)
     under = models.CharField(max_length=225)
+    nature_of_group =models.CharField(max_length=225,default="Null",blank=True)
+    does_it_affect =models.CharField(max_length=225,default="Null",blank=True)
     gp_behaves_like_sub_ledger = models.BooleanField(default=False)
     nett_debit_credit_bal_reporting = models.BooleanField(default=False)
     used_for_calculation = models.BooleanField(default=False)
@@ -143,7 +145,7 @@ class Ledger(models.Model):
         return self.ledger_name
 
 
-class Banking_Details(models.Model):
+class Ledger_Banking_Details(models.Model):
     ledger_id = models.ForeignKey(Ledger, on_delete=models.CASCADE, null=True, blank=True)
     od_limit = models.CharField(max_length=225,default="Null",blank=True)
     holder_name =models.CharField(max_length=225,default="Null",blank=True)
@@ -156,7 +158,7 @@ class Banking_Details(models.Model):
     enbl_chk_printing =  models.CharField(max_length=225,default="Null",blank=True)
     chqconfg= models.CharField(max_length=225,default="Null",blank=True)
 
-class Mailing_Address(models.Model):
+class Ledger_Mailing_Address(models.Model):
     ledger_id = models.ForeignKey(Ledger, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=225,default="Null",blank=True)
     address = models.CharField(max_length=225,default="Null",blank=True)
@@ -165,7 +167,7 @@ class Mailing_Address(models.Model):
     pincode =models.CharField(max_length=225,default="Null",blank=True)
 
 
-class Tax_Register(models.Model):
+class Ledger_Tax_Register(models.Model):
     ledger_id = models.ForeignKey(Ledger, on_delete=models.CASCADE, null=True, blank=True)
     gst_uin = models.CharField(max_length=225,default="Null",blank=True)
     register_type =models.CharField(max_length=225,default="Null",blank=True)

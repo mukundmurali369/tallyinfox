@@ -14,7 +14,9 @@ def index(request):
     return render(request, 'base.html')
 
 def load_create_groups(request):
-    return render(request,'groups.html')
+    grp = GroupModel.objects.all()
+    context={'grp':grp}
+    return render(request,'groups.html',context)
     
 def load_create_ledger(request):
     return render(request,'load_create_ledger.html')
@@ -133,23 +135,15 @@ def load_rates_of_exchange(request):
 
 
 
-@csrf_exempt
+
 def create_group(request):
     if request.method == 'POST':
         gname = request.POST['gname']
         alia = request.POST['alia']
-        if len(gname) <= 0:
-            return JsonResponse({
-                'status': 00
-            })
-
-        if len(alia) <= 0:
-            alia = None
-        else:
-            pass
-
         under = request.POST['und']
         gp = request.POST['subled']
+        naturee = request.POST['nature']
+        gross_profitt = request.POST['gross_profit']
         nett = request.POST['nee']
         calc = request.POST['cal']
         meth = request.POST['meth']
@@ -158,16 +152,18 @@ def create_group(request):
             name=gname,
             alias=alia,
             under=under,
+            nature_of_group=naturee,
+            does_it_affect=gross_profitt,
             gp_behaves_like_sub_ledger=gp,
             nett_debit_credit_bal_reporting=nett,
             used_for_calculation=calc,
             method_to_allocate_usd_purchase=meth,
         )
         mdl.save()
-        # return redirect('index_view')
-        return JsonResponse({
-            'status': 1
-        })
+        grp = GroupModel.objects.all()
+        context={'grp':grp}
+        return render(request,'groups.html',context)
+        
 
 
 def create_currency(request):
@@ -359,7 +355,7 @@ def create_voucher(request):
 
 
 
-def create_ledger(request):
+def save_ledger(request):
     if request.method == 'POST':
         # Ledger Basic
         Lname = request.POST.get('ledger_name', False)
@@ -396,9 +392,9 @@ def create_ledger(request):
         # Satutory Details
         assessable_calculationn = request.POST.get('assessable_calculation', False)
         Appropriate_too =request.POST.get('Appropriate_to', False)
-        gst_applicablee= request.POST['is_gst_applicable']
+        gst_applicablee = request.POST.get('is_gst_applicable',False)
         Set_alter_GSTT=request.POST.get('Set_alter_GST', False)
-        type_of_supplyy = request.POST['type_of_supply']
+        type_of_supplyy = request.POST.get('type_of_supply',False)
         Method_of_calcc=request.POST.get('Method_of_calc', False)
 
         #leadger Rounding
@@ -416,26 +412,21 @@ def create_ledger(request):
         #sundry
         maintain_balance_bill_by_billl=request.POST.get('maintain_balance_bill_by_bill', False)
         Default_credit_periodd=request.POST.get('Default_credit_period', False)
-        Check_for_credit_days=request.POST.get('Check_for_credit_days', False)
+        Check_for_credit_dayss=request.POST.get('Check_for_credit_days', False)
 
         Lmdl = Ledger(
-            cid=sec,
+            
             ledger_name=Lname,
             ledger_alias=Lalias,
-            group=fl,
+            group_under=Lunder,
             ledger_opening_bal=Lopening_bal,
             ledger_type=typ_of_ledg,
-            type_of_duty=typ_of_duty,
-            percent_of_calculation=percet_of_calc,
-            maintain_bal_bill=main_balance_bill_,
-            credit_days_during_voucher_entry=chk_credit_days,
-            default_cr_peroid=def_cr_period,
             provide_banking_details=provide_banking,
         )
         Lmdl.save()
         idd = Lmdl
-        Bmdl = Banking_Details(
-            cid=sec,
+        Bmdl = Ledger_Banking_Details(
+          
             ledger_id=idd,
             od_limit=B_od_limit,
             holder_name=B_ac_holder_name,
@@ -448,9 +439,9 @@ def create_ledger(request):
             enbl_chk_printing=B_name_enbl_chq_prtg,
         )
         Bmdl.save()
-        M_mdl = Mailing_Address(
-            cid=sec,
-            ledger_id=idd,
+        M_mdl = Ledger_Mailing_Address(
+        
+            
             name=Mname,
             address=Maddress,
             state=Mstate,
@@ -458,9 +449,9 @@ def create_ledger(request):
             pincode=Mpincode,
         )
         M_mdl.save()
-        T_mdl = Tax_Register(
-            cid=sec,
-            ledger_id=idd,
+        T_mdl = Ledger_Tax_Register(
+           
+          
             gst_uin=Tgst_uin,
             register_type=Treg_typ,
             pan_no=Tpan_no,
@@ -469,21 +460,41 @@ def create_ledger(request):
         )
         T_mdl.save()
         LS_mdl = Ledger_Satutory(
-            cid=sec,
             ledger_id=idd,
-            assessable_calculation=assemble_calc,
-            gst_applicable=is_gst_applicable,
-            type_of_supply=typ_of_supply,
+            assessable_calculation=assessable_calculationn,
+            Appropriate_to =Appropriate_too ,
+            gst_applicable=gst_applicablee,
+            Set_alter_GST = Set_alter_GSTT,
+            type_of_supply=type_of_supplyy,
+            Method_of_calc = Method_of_calcc,
 
 
         )
         LS_mdl.save()
-        return redirect('index_view')
 
-    grp_under_lst = GroupModel.objects.all().order_by('name')
-  
-    context = {
-        'grp': grp_under_lst,
-        
-    }
-    return render(request, 'create_ledger.html', context)
+        rnd_mdl = Ledger_Rounding(
+            ledger_id=idd,
+            Rounding_Method=Rounding_Methodd,
+            Round_limit =Round_limitt,
+
+        )
+        rnd_mdl.save()
+
+        tax_mdl = ledger_tax(
+            ledger_id=idd,
+            type_of_duty_or_tax=type_of_duty_or_taxx,
+            type_of_tax =type_of_taxx,
+            valuation_type=valuation_typee,
+            rate_per_unit=rate_per_unitt,
+            Persentage_of_calculation=Persentage_of_calculationn,
+        )
+        tax_mdl.save()
+
+        sndry_mdl = Ledger_sundry(
+            ledger_id=idd,
+            maintain_balance_bill_by_bill=maintain_balance_bill_by_billl,
+            Default_credit_period=Default_credit_periodd,
+            Check_for_credit_days =Check_for_credit_dayss,
+        )
+        sndry_mdl.save()
+        return redirect('create_ledger.html')
