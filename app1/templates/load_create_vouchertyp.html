@@ -13,11 +13,15 @@
             display:none;
         }
     </style>
+   
 
   <div class="m-0">
     <h6 style="" class="bg-info text-light p-2 m-0 text-center">Create Voucher type</h6>
+    
             <form class="p-5" action="create_voucher" method="post" style="background-color:rgba(0,0,0,.4);">
                 {% csrf_token %}
+
+                
                 <div class="p-3">
                 <div class="row container-fluid  p-2 m-0">
                     <div class="col-sm-2 m-0 p-0"> <label for="a">Name</label></div>
@@ -102,35 +106,13 @@
                                 <option value="auto">Automatic</option> 
                                 <option value="manu">Manual</option>
                                 <option value="overd">Automatic(Manual Override)</option> 
-                                <option value="multi"> Multi-user Auto</option>
                                 <option value="none">None</option>
                             </select>
                             </div>
                         </div>
                     
 
-                        <div class="row container-fluid  p-2 hide"  id="prvtdp0">
-                            <div class="col-sm-6 m-0 p-0"> <label for="g">Prevent Duplicates</label></div>
-                            <div class="col-sm-6 m-0 p-0">
-                                <select name="prvtdp" id="prvtdp" class="form-control "required="False">
-                                    <option value="no">No</option>
-                                    <option value="yes">Yes</option> 
-                                   
-                                </select>
-                            </div>
-                        </div>
-                    
                         
-                        <div class="row container-fluid  p-2 hide" id="useadvc0">
-                            <div class="col-sm-6 m-0 p-0"> <label for="g">Use advanced configurations </label></div>
-                            <div class="col-sm-6 m-0 p-0">
-                                <select name="useavdc" id="useadvc" class="form-control ">
-                                    <option value="no">No</option>
-                                    <option value="yes">Yes</option> 
-                                   
-                                </select>
-                            </div>
-                        </div>
 <hr>
                         <div class="row container-fluid  p-2">
                             <div class="col-sm-6 m-0 p-0"> <label for="g">use effective dates  for vouchers</label></div>
@@ -212,36 +194,7 @@
         <script>
 
             
-        function shw(){
-            var status = document.getElementById("mtdvhr");
-            var a = status.value
-            console.log(a);
-            if( a == "auto" ){
-                console.log(a);
-
-                document.getElementById('useadvc0').style.display = "flex";
-                document.getElementById('prvtdp0').style.display = "none";
-            }
-            else if( a == "manu" ){
-                document.getElementById('prvtdp0').style.display = "flex";
-                document.getElementById('useadvc0').style.display = "none";
-            }
-            else if( a == "overd" ){
-                document.getElementById('useadvc0').style.display = "flex";
-                document.getElementById('prvtdp0').style.display = "flex";
-            }
-            else if( a == "multi" ){
-                document.getElementById('useadvc0').style.display = "flex";
-                document.getElementById('prvtdp0').style.display = "none";
-                
-            }
-            else{
-                document.getElementById('useadvc0').style.display = "none";
-                document.getElementById('prvtdp0').style.display = "none";
-
-            }
-
-        }
+        
 
 
             function hi(){

@@ -30,6 +30,7 @@
     <!-- loader-->
     <link href="{% static 'assets/css/pace.min.css' %}" rel="stylesheet" />
     <script src="{% static 'assets/js/pace.min.js' %}"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
     <!-- Icons CSS -->
@@ -72,7 +73,7 @@
                 <nav class="navbar navbar-expand">
                     <div class="sidebar-header">
                         <div class="d-none d-lg-flex">
-                            <img src="{% static 'assets/images/logo-icon.png' %}" class="logo-icon-2" alt="" />
+                            <img src="https://apexactsoft.com/wp-content/uploads/2020/11/Tally-Prime-Logo.png" class="logo-icon-2" alt="" />
                         </div>
                         <div class="a">
                             <h4><b>Tally Prime</b></h4>
@@ -215,226 +216,51 @@
             <!--navigation-->
           
             <div id="nav1" class="nav-container" style="background-color: #213b52;">
-                <nav class="topbar-nav">
-                    <ul class="metismenu" id="menu">
-                        <li>
-                            <a href="#">
-                                <div class="menu-title">Dashboard</div>
-                            </a>
-                        </li>
+                <nav class="topbar-nav w-75">
+                    <ul class="metismenu w-25" id="menu">
+                        
                         <li>
                             <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class="bx bx-home-alt"></i>
-                                </div>
+                                <div class="parent-icon"><span class="iconify" data-icon="bx:add-to-queue"></span></div>
                                 <div class="menu-title">Create</div>
                             </a>
                             <ul>
-                                <li><a href="load_create_groups"><i class="bx bx-right-arrow-alt"></i>Groups</a>
-                                </li>
-                                <li><a href="load_create_ledger"><i class="bx bx-right-arrow-alt"></i>Ledger</a>
-                                </li>
-                                <li><a href="load_create_select_currency"><i class="bx bx-right-arrow-alt"></i>Currency</a>
-                                </li>
-                                <li><a href="load_create_vouchertyp"><i class="bx bx-right-arrow-alt"></i>Voucher Type</a>
-                                </li>
-                                 
-                                <li><a href="load_create_employee"><i class="bx bx-right-arrow-alt"></i>Create Employee</a>
-                                </li>
+                                <li><a href="load_create_groups"><i class="bx bx-right-arrow-alt"></i>Groups</a></li>
+                                <li><a href="load_create_ledger"><i class="bx bx-right-arrow-alt"></i>Ledger</a></li>
+                                <li><a href="load_create_select_currency"><i class="bx bx-right-arrow-alt"></i>Currency</a></li>
+                                <li><a href="load_create_vouchertyp"><i class="bx bx-right-arrow-alt"></i>Voucher Type</a></li>
+                                <li><a href="load_create_employee"><i class="bx bx-right-arrow-alt"></i>Create Employee</a></li>
+                                <li><a href="load_create_empcat"><i class="bx bx-right-arrow-alt"></i>Create employee category</a></li>
+                                <li><a href="load_create_empgrp"><i class="bx bx-right-arrow-alt"></i>Create employee Group</a></li>
+                                <li><a href="load_create_empatnd"><i class="bx bx-right-arrow-alt"></i>Attendence/Production type</a></li>
+                                <li><a href="load_create_unit"><i class="bx bx-right-arrow-alt"></i>Units (Work)</a></li>
+                                <li><a href="load_credit_list"><i class="bx bx-right-arrow-alt"></i>Credit list</a></li>
+                                <li><a href="load_rates_of_exchange"><i class="bx bx-right-arrow-alt"></i>Rates of exchange</a></li>
+    
+                            </ul>
+                        </li>
+                    
+
+                           
+                          
+                      
+
                         
-                                <li><a href="load_create_empcat"><i class="bx bx-right-arrow-alt"></i>Create employee category</a>
-                                </li>
-                            
-                            <li><a href="load_create_empgrp"><i class="bx bx-right-arrow-alt"></i>Create employee Group</a>
-                            </li>
-                        
-                        <li><a href="load_create_empatnd"><i class="bx bx-right-arrow-alt"></i>Attendence/Production type</a>
-                        </li>
-                        <li><a href="load_create_unit"><i class="bx bx-right-arrow-alt"></i>Units (Work)</a>
-                        </li>
-                        <li><a href="load_credit_list"><i class="bx bx-right-arrow-alt"></i>Credit list</a>
-                        </li>
-
-                        <li><a href="load_rates_of_exchange"><i class="bx bx-right-arrow-alt"></i>Rates of exchange</a>
-                        </li>
-                        
-
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class="bx bx-file"></i>
-                                </div>
-                                <div class="menu-title">Banking</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Sales
-                    Records</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Invoices</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Customers</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Product and
-                    Services</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-
-                                <div class="parent-icon"><i class='bx bx-briefcase-alt'></i>
-                                </div>
-                                <div class="menu-title">Expenses</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Expenses</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Suppliers</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class='bx bx-wallet'></i>
-                                </div>
-                                <div class="menu-title">Payroll</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Employee</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Payslip</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class="bx bx-comment-edit"></i>
-                                </div>
-                                <div class="menu-title">Report</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Profit and
-                    loss</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Balance
-                    sheet</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Accounts
-                    receivables</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Accounts
-                    payables</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class='bx bx-wallet'></i>
-                                </div>
-                                <div class="menu-title">Taxes</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>GST</a>
-                                </li>
-
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>New...</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="parent-icon"><i class="bx bx-line-chart"></i>
-                                </div>
-                                <div class="menu-title">Accounting</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Chart of
-                    Accounts</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Reconcile</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <a href="#nav2" role="button" onclick="document.getElementById('nav2').style.display='flex'">
-                            <span class="carousel-control-next-icon" style="color: #2F5D6D;width:10px"></span>
-                            <span class="carousel-control-next-icon" style="color: #2F5D6D;width:10px"></span>
-                        </a>
+                                
                     </ul>
                 </nav>
             </div>
-            <div id="nav2" class="nav-container" style="background-color: #213b52; display: none">
-                <nav class="topbar-nav">
-                    <ul class="metismenu" id="menu">
-                        <a href="#nav1" role="button" onclick="document.getElementById('nav2').style.display='none'">
-                            <span class="carousel-control-prev-icon" style="color: #2F5D6D;width:10px"></span>
-                            <span class="carousel-control-prev-icon" style="color: #2F5D6D;width:10px"></span>
-                        </a>
-                        <li>
-                            <a href="#">
-                                <div class="menu-title">My Accountant</div>
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="menu-title">Cash Management</div>
-                            </a>
-                            <ul>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Cash
-                    Position</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Cash Flow Analyzer</a>
-                                </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Check Cash Flow</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="menu-title">Production</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="menu-title">Quality Managment</div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:;" class="has-arrow">
-                                <div class="menu-title">Project Management</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="javascript:;">
-                                <div class="menu-title">Usage Decisions</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="javascript:;">
-                                <div class="menu-title">Accounts and Payable</div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            
          
             <div class="page-wrapper">
-                <div class="page-content-wrapper" style="background-color: #2f516f;">
-                    <div class="container pt-3">
-                        {% for message in messages %} {% if message %}
-                        <div class="alert" onclick="this.parentElement.style.display='none';">
-                            <div class="row d-flex">
-                                <div class="col-md-12">
-                                    <center>
-                                        <h5 style="color: goldenrod;">{{ message }}</h5>
-                                    </center>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %} {% endfor %}
-                    </div>
+                <div class="page-content-wrapper p-3" style="background-color: #2f516f;">
+                    {% for message in messages %}
+            
+                <h6 class="alert-success text-center p-3 my-3">
+                      {{ message }}
+                </h6>
+              
+        {% endfor %}
                     {% block body %} {% endblock %}
 
                 </div>

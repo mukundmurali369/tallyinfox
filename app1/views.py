@@ -1,4 +1,5 @@
 from multiprocessing import context
+from django.contrib import messages
 from sys import flags
 from unicodedata import name
 from django.http import JsonResponse
@@ -144,7 +145,7 @@ def create_group(request):
         gp = request.POST['subled']
         naturee = request.POST['nature']
         gross_profitt = request.POST['gross_profit']
-        nett = request.POST['nee']
+        nett = request.POST['nee'] 
         calc = request.POST['cal']
         meth = request.POST['meth']
 
@@ -162,6 +163,7 @@ def create_group(request):
         mdl.save()
         grp = GroupModel.objects.all()
         context={'grp':grp}
+        messages.info(request,'GROUP CREATED SUCCESSFULLY')
         return render(request,'groups.html',context)
         
 
@@ -170,19 +172,6 @@ def create_currency(request):
     if request.method == 'POST':
         symbol = request.POST['symbol']
         fname = request.POST['fname']
-        if len(symbol) <= 0:
-            print('XX')
-            return JsonResponse({
-                'status': 00
-            })
-        elif len(fname) <= 0:
-            print('XXX')
-            return JsonResponse({
-                'status': 00
-            })
-        else:
-            pass
-
         iso_code = request.POST['iso_code']
         n_deci_placs = request.POST['n_deci_placs']
         smt_millon = request.POST['smt_millon']
@@ -203,6 +192,7 @@ def create_currency(request):
             decimal_no_in_words=amount_in_words,
         )
         mdl_obj.save()
+        messages.info(request,'CURRNCY DATA ADDED  SUCCESSFULLY')
         return redirect('load_create_currency')
 
     
@@ -233,6 +223,7 @@ def save_currency_data(request):
         grp = CreateCurrency.objects.all()
         obj1 = CurrencyAlter.objects.all()
         context = {'grp':grp ,'obj':obj1}
+        messages.info(request,'CURRNCY DATA UPDATED SUCCESSFULLY')
         return redirect('load_rates_of_exchange',context)
 
 
@@ -251,6 +242,7 @@ def save_empcat(request):
            
         )
         mdl_obj.save()
+        messages.info(request,'EMPLOYEEE CATEGORY CREATED SUCCESSFULLY')
         return redirect('load_create_empcat')
 
 
@@ -269,6 +261,7 @@ def save_empgrp(request):
            
         )
         mdl_obj.save()
+        messages.info(request,'EMPLOYEE GROUP CREATED SUCCESSFULLY')
         return redirect('load_create_empcat')
 
 
@@ -287,6 +280,7 @@ def save_empattend(request):
            
         )
         mdl_obj.save()
+        messages.info(request,'ATTENDENCE/PRODUCTION CREATED SUCCESSFULLY')
         return redirect('load_create_empatnd')
 
 
@@ -303,26 +297,6 @@ def create_voucher(request):
         meth_vou_num = request.POST['meth_vou_num']
         useadv = request.POST.get('useadvc', False)
         prvtdp = request.POST.get('prvtdp', False)
-        # useadv= request.POST['useadvc']
-        # prvtdp= request.POST['prvtdp']
-
-        # if meth_vou_num == "auto":
-        #     useadv= request.POST['useadvc']
-        #     prvtdp ="Null"
-        # elif meth_vou_num == "manu":
-        #     prvtdp= request.POST['prvtdp']
-        #     useadv ="Null"
-        # elif meth_vou_num == "overd":
-        #     prvtdp= request.POST['prvtdp']
-        #     useadv = request.POST['useadvc']
-        # elif meth_vou_num == "multi":
-        #     useadv= request.POST['useadvc']
-        #     prvtdp ="Null"
-        # else:
-        #     prvtdp="Null"
-        #     useadv="Null"
-
-
         use_effct_date = request.POST['uefftdate']  # bool
         allow_zero_trans = request.POST['allow_zero_trans']  # bool
         allow_naration_in_vou = request.POST['allow_naration_in_vou']  # bool
@@ -349,6 +323,7 @@ def create_voucher(request):
 
         )
         mdl.save()
+        messages.info(request,'VOUCHER CREATED SUCCESSFULLY')
         return redirect('load_create_vouchertyp')
 
     return render(request, 'load_create_vouchertyp')
@@ -497,4 +472,5 @@ def save_ledger(request):
             Check_for_credit_days =Check_for_credit_dayss,
         )
         sndry_mdl.save()
-        return redirect('create_ledger.html')
+        messages.info(request,'LEDGER CREATED SUCCESSFULLY')
+        return redirect('load_create_ledger.html')
