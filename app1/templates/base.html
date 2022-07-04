@@ -217,29 +217,39 @@
           
             <div id="nav1" class="nav-container" style="background-color: #213b52;">
                 <nav class="topbar-nav w-75">
-                    <ul class="metismenu w-25" id="menu">
-                        
+                    <ul class="metismenu w-50" id="menu"> 
                         <li>
                             <a href="javascript:;" class="has-arrow">
+
                                 <div class="parent-icon"><span class="iconify" data-icon="bx:add-to-queue"></span></div>
                                 <div class="menu-title">Create</div>
+
                             </a>
                             <ul>
-                                <li><a href="load_create_groups"><i class="bx bx-right-arrow-alt"></i>Groups</a></li>
-                                <li><a href="load_create_ledger"><i class="bx bx-right-arrow-alt"></i>Ledger</a></li>
-                                <li><a href="load_create_select_currency"><i class="bx bx-right-arrow-alt"></i>Currency</a></li>
-                                <li><a href="load_create_vouchertyp"><i class="bx bx-right-arrow-alt"></i>Voucher Type</a></li>
-                                <li><a href="load_create_employee"><i class="bx bx-right-arrow-alt"></i>Create Employee</a></li>
-                                <li><a href="load_create_empcat"><i class="bx bx-right-arrow-alt"></i>Create employee category</a></li>
-                                <li><a href="load_create_empgrp"><i class="bx bx-right-arrow-alt"></i>Create employee Group</a></li>
-                                <li><a href="load_create_empatnd"><i class="bx bx-right-arrow-alt"></i>Attendence/Production type</a></li>
-                                <li><a href="load_create_unit"><i class="bx bx-right-arrow-alt"></i>Units (Work)</a></li>
-                                <li><a href="load_credit_list"><i class="bx bx-right-arrow-alt"></i>Credit list</a></li>
-                                <li><a href="load_rates_of_exchange"><i class="bx bx-right-arrow-alt"></i>Rates of exchange</a></li>
-    
+                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Accounting Masters</a>
+                                    <ul>
+                                        <li><a href="load_create_groups"><i class=" bx bx-caret-right"></i>Groups</a></li>
+                                        <li><a href="load_create_ledger"><i class=" bx bx-caret-right"></i>Ledgers</a></li>
+                                        <li><a href="load_create_currency"><i class=" bx bx-caret-right"></i>Currency</a></li>
+                                        <li><a href="load_rates_of_exchange"><i class=" bx bx-caret-right"></i>Rates of exchange</a></li>
+                                        <li><a href="load_create_vouchertyp"><i class=" bx bx-caret-right"></i>Voucher Types</a></li>
+                                        
+                                    </ul>
+                                </li>
+                               
+                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Payroll Masters</a>
+                                    <ul>
+                                        <li><a href="load_create_empcat"><i class=" bx bx-caret-right"></i>Employee Categories</a></li>
+                                        <li><a href="load_create_empgrp"><i class=" bx bx-caret-right"></i>Employee Groups</a></li>
+                                        <li><a href="load_create_employee"><i class=" bx bx-caret-right"></i>Employees</a></li>
+                                        <li><a href="load_create_unit"><i class=" bx bx-caret-right"></i>Units(Work)</a></li>
+                                        <li><a href="load_create_empatnd"><i class=" bx bx-caret-right"></i>Attendance/Production Types</a></li>
+                                        <li><a href="load_credit_list"><i class=" bx bx-caret-right"></i>Credit list</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                    
+                        <li>
 
                            
                           
@@ -256,11 +266,20 @@
                 <div class="page-content-wrapper p-3" style="background-color: #2f516f;">
                     {% for message in messages %}
             
-                <h6 class="alert-success text-center p-3 my-3">
+                <h6 class="alert alert-info text-center p-3 my-3" id="msg">
                       {{ message }}
                 </h6>
               
         {% endfor %}
+
+    <script>
+        setTimeout(function(){
+            if($('#msg').length > 0){
+                $('#msg').remove();
+            }
+
+        },4000)
+    </script>
                     {% block body %} {% endblock %}
 
                 </div>

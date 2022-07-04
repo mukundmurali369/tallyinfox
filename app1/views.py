@@ -149,6 +149,13 @@ def create_group(request):
         calc = request.POST['cal']
         meth = request.POST['meth']
 
+        grp = GroupModel.objects.all()
+        context={'grp':grp}
+
+        if GroupModel.objects.filter(name=gname).exists():
+                messages.info(request,'This Name is already taken...!')
+                return render(request,'groups.html',context)
+
         mdl = GroupModel(
             name=gname,
             alias=alia,
@@ -179,6 +186,9 @@ def create_currency(request):
         space_bt_sy = request.POST['space_bt_sy']
         amount_after_decimal = request.POST['amount_after_decimal']
         amount_in_words = request.POST['amount_in_words']
+        if CreateCurrency.objects.filter(formal_name=fname).exists():
+                messages.info(request,'This Name is already taken...!')
+                return redirect('load_create_currency')
 
         mdl_obj = CreateCurrency(
             symbol=symbol,
@@ -205,6 +215,13 @@ def save_currency_data(request):
         sr = request.POST['sr']
         lvr2 = request.POST['lvr2']
         sr2 = request.POST['sr2']
+        grp = CreateCurrency.objects.all()
+        obj1 = CurrencyAlter.objects.all()
+        context = {'grp':grp ,'obj':obj1}
+
+        if CreateCurrency.objects.filter(currencys=cname).exists():
+                messages.info(request,'This Name is already taken...!')
+                return redirect('load_rates_of_exchange',context)
         
         obj = CurrencyAlter(
             slno = sl,
@@ -220,9 +237,7 @@ def save_currency_data(request):
         )
         
         obj.save()
-        grp = CreateCurrency.objects.all()
-        obj1 = CurrencyAlter.objects.all()
-        context = {'grp':grp ,'obj':obj1}
+        
         messages.info(request,'CURRNCY DATA UPDATED SUCCESSFULLY')
         return redirect('load_rates_of_exchange',context)
 
@@ -233,6 +248,9 @@ def save_empcat(request):
         aliass = request.POST['alias']
         rev = request.POST['allocaterev']
         nonrev = request.POST['allocatenonrev']
+        if CreateEmployeeCategory.objects.filter(name=namee).exists():
+                messages.info(request,'This Name is already taken...!')
+                return redirect('load_create_empcat')
         
         mdl_obj = CreateEmployeeCategory(
             name =namee,
@@ -303,6 +321,10 @@ def create_voucher(request):
         optional = request.POST['optional'] 
         provide_narr = request.POST['providenr']  # bool
         print = request.POST['print']  # bool
+
+        if VoucherModels.objects.filter(voucher_name=Vname).exists():
+                messages.info(request,'This Name is already taken...!')
+                return render(request, 'load_create_vouchertyp')
         
         mdl = VoucherModels(
 
@@ -389,8 +411,11 @@ def save_ledger(request):
         Default_credit_periodd=request.POST.get('Default_credit_period', False)
         Check_for_credit_dayss=request.POST.get('Check_for_credit_days', False)
 
+        if Ledger.objects.filter(ledger_name = Lname ).exists():
+                messages.info(request,'This Name is already taken...!')
+                return redirect('load_create_ledger.html')
+
         Lmdl = Ledger(
-            
             ledger_name=Lname,
             ledger_alias=Lalias,
             group_under=Lunder,
@@ -401,7 +426,7 @@ def save_ledger(request):
         Lmdl.save()
         idd = Lmdl
         Bmdl = Ledger_Banking_Details(
-          
+        
             ledger_id=idd,
             od_limit=B_od_limit,
             holder_name=B_ac_holder_name,
@@ -412,11 +437,11 @@ def save_ledger(request):
             branch_name=B_branch,
             alter_chk_bks=B_alter_chq_bks,
             enbl_chk_printing=B_name_enbl_chq_prtg,
+
         )
         Bmdl.save()
         M_mdl = Ledger_Mailing_Address(
-        
-            
+
             name=Mname,
             address=Maddress,
             state=Mstate,
@@ -435,6 +460,7 @@ def save_ledger(request):
         )
         T_mdl.save()
         LS_mdl = Ledger_Satutory(
+
             ledger_id=idd,
             assessable_calculation=assessable_calculationn,
             Appropriate_to =Appropriate_too ,
